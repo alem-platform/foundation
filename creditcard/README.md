@@ -115,6 +115,14 @@ $ ./creditcard generate --pick "440043018030****"
 44004301809521
 ```
 
+In case of an error:
+
+```sh
+$ ./creditcard generate --pick "44004301803*****"
+$ echo $?
+1
+```
+
 ### Feature: Information
 
 The `information` feature provides details about the card based on data in `brands.txt` and `issuers.txt`.
