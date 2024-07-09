@@ -216,6 +216,12 @@ If you are still stuck, ask a friend for help or take a break and come back late
 
 When you're trying to tackle a large project or problem, it's easy to become discouraged by just how big or intimidating the task seems. Instead of being intimidated, work on breaking the problem up (decomposing the problem) into smaller and smaller subproblems, until each individual subproblem seems manageable and doable.
 
+...
+
+Essentially, you're trying to gain the mindset of an engineer. If a problem is big, don't give up. Keep breaking it up into smaller and smaller pieces, and research things that seem irreducible. Then repeat, continuing the cycle: break down, google, break down, google...
+
+This, by the way, is a pretty effective strategy for self-teaching!
+
 Source: https://www.reddit.com/r/learnprogramming/wiki/faq/
 
 ## Author
