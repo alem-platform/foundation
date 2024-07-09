@@ -56,6 +56,10 @@ In this project, you will create a tool called `creditcard` to:
 - Get information about card brands and issuers.
 - Issue new card numbers.
 
+### Allowed
+
+Only built-in packages are allowed.
+
 ### Resources
 
 - [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
