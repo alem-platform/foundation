@@ -1,6 +1,6 @@
 # Warm Welcome
 
-> I think that it’s extraordinarily important that we in computer science keep **fun** in computing.
+> I think that it's extraordinarily important that we in computer science keep **fun** in computing.
 >
 > — Alan J. Perlis. Structure & Interpretation of Computer Programs
 
@@ -10,7 +10,7 @@ Congratulations on completing your bootcamp journey. This significant achievemen
 
 As you dive deeper into Programming, it is important to keep fun and curiosity alive throughout your career. Programming is a field where you need to keep learning and adapting.
 
-Let’s explore what you will learn during our Foundation branch:
+Let's explore what you will learn during our Foundation branch:
 - Bits and bytes  
 - Algorithms and Data Structures  
 - I/O: File, TCP/IP
@@ -21,111 +21,107 @@ Let’s explore what you will learn during our Foundation branch:
 - Basic software design principles  
 - Testing and test-driven development
 
-Stay curious, stay engaged, and keep the joy of discovery in your programming journey. Welcome once again, and let’s start this exciting adventure together!
+Stay curious, stay engaged, and keep the joy of discovery in your programming journey. Welcome once again, and let's start this exciting adventure together!
 
 # creditcard
+
+| Learning Objectives   |
+| --------------------- |
+| `Algorithms`          |
+| `I/O`                 |
+| `Data Representation` |
 
 > Every computer program is a model, hatched in the mind, of a real or mental process.
 >
 > — Alan J. Perlis. Structure & Interpretation of Computer Programs
 
+Credit cards are used to pay for goods and services. Each card has a unique number that helps identify the cardholder and the issuing bank. Credit card numbers are long to ensure each card is unique. For example:
+
+- Visa uses 13- and 16-digit numbers.
+- MasterCard uses 16-digit numbers.
+- American Express uses 15-digit numbers.
+
+These numbers are not random. They follow specific patterns:
+
+- Visa numbers start with 4.
+- MasterCard numbers start with 51, 52, 53, 54, or 55.
+- American Express numbers start with 34 or 37.
+
+Credit card numbers also include a "checksum" that helps detect errors. This is done using Luhn's Algorithm, a simple math formula that checks if the number is valid.
+
+In this project, you will create a tool called `creditcard` to:
+
+- Validate credit card numbers.
+- Generate possible card numbers.
+- Get information about card brands and issuers.
+- Issue new card numbers.
+
+### Resources
+
+- [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
 
 ### Feature: Validate
 
-- Minimum length 13.
-- `OK` should be printed into stdout.
-- Exit with status `0`.
+The `validate` feature checks if a credit card number is valid using Luhn's Algorithm.
+
+Requirements:
+
+- The number must be at least 13 digits long.
+- If valid, print `OK` to stdout and exit with status 0.
+- If invalid, print `INCORRECT` to stderr and exit with status 1.
+- Support passing multiple entries.
+- Support `--stdin` flag to pass number from stdin.
 
 ```sh
-./creditcard validate "4400430180300003"
+$ ./creditcard validate "4400430180300003"
 OK
-```
-
-Support passing number from stdin.
-
-```sh
-echo "4400430180300003" | ./creditcard validate --stdin
-OK
-```
-
-- `INCORRECT` should be printed into stderr.
-- Exit with status `1`.
-
-```sh
-./creditcard validate "4400430180300002"
+$ ./creditcard validate "4400430180300002"
 INCORRECT
-```
-
-Support multiple entries.
-
-```sh
-./creditcard validate "4400430180300003" "4400430180300011"
+$ ./creditcard validate "4400430180300003" "4400430180300011"
 OK
 OK
-```
-
-```sh
-echo "4400430180300003" "4400430180300011" | ./creditcard validate --stdin
+$ echo "4400430180300003" | ./creditcard validate --stdin
+OK
+$ echo "4400430180300003" "4400430180300011" | ./creditcard validate --stdin
 OK
 OK
 ```
 
 ### Feature: Generate
 
-- At most 4 asterisks `*`.
-- Should be printed into stdout.
-- Numeric order - ascending.
-- Exit with status `1` if any error.
+The `generate` feature creates possible credit card numbers by replacing asterisks (*) with digits.
+
+Requirements:
+
+- Replace up to 4 asterisks (*) with digits.
+- Print the generated numbers to stdout.
+- Numbers must be printed in ascending order.
+- Exit with status 1 if there is any error.
+- Support `--pick` flag to randomly pick a single entry.
 
 ```sh
-./creditcard generate "440043018030****"
+$ ./creditcard generate "440043018030****"
 4400430180300003
 4400430180300011
 4400430180300029
 ...
 4400430180309988
 4400430180309996
-```
-
-Support `--pick` flag to randomly pick a single entry.
-
-```sh
-./creditcard generate --pick "440043018030****"
+$ ./creditcard generate --pick "440043018030****"
 44004301809521
 ```
 
-Support passing number from stdin.
-
 ### Feature: Information
 
-Content of `brands.txt`:
+The `information` feature provides details about the card based on data in `brands.txt` and `issuers.txt`.
 
-```
-VISA:4
-MASTERCARD:51
-MASTERCARD:52
-MASTERCARD:53
-MASTERCARD:54
-MASTERCARD:55
-AMEX:34
-AMEX:37
-```
-
-Content of `issuers.txt`:
-
-```
-Kaspi Gold:440043
-Forte Black:404243
-Forte Blue:517792
-Halyk Bonus:440563
-Jusan Pay:539545
-```
+Requirements:
+- Output the card number, validity, brand, and issuer.
+- Support `--stdin` flag to pass number from stdin.
+- Support passing multiple entries.
 
 ```sh
-./creditcard information --brands=brands.txt --issuers=issuers.txt "4400430180300003"
-```
-
-```
+$ ./creditcard information --brands=brands.txt --issuers=issuers.txt "4400430180300003"
 4400430180300003
 Correct: yes
 Card Brand: VISA
@@ -141,18 +137,38 @@ Card Brand: -
 Card Issuer: -
 ```
 
-- Support stdin
-- Support multiple entries
+Example content of `brands.txt`:
+
+```
+VISA:4
+MASTERCARD:51
+MASTERCARD:52
+MASTERCARD:53
+MASTERCARD:54
+MASTERCARD:55
+AMEX:34
+AMEX:37
+```
+
+Example content of `issuers.txt`:
+
+```
+Kaspi Gold:440043
+Forte Black:404243
+Forte Blue:517792
+Halyk Bonus:440563
+Jusan Pay:539545
+```
 
 ### Feature: Issue
 
-Must pick random number.
+The `issue` feature generates a random valid credit card number for a specified brand and issuer.
+
+Requirements:
+
+- Pick a random number for the specified brand and issuer.
 
 ```sh
-./creditcard issue --brands=brands.txt --issuers=issuers.txt --brand=VISA --issuer="Kaspi Gold"
-```
-
-Output:
-```
+$ ./creditcard issue --brands=brands.txt --issuers=issuers.txt --brand=VISA --issuer="Kaspi Gold"
 4400430180300003
 ```
