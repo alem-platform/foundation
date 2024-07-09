@@ -2,7 +2,7 @@
 
 > I think that it’s extraordinarily important that we in computer science keep **fun** in computing.
 >
-> Alan J. Perlis. Structure & Interpretation of Computer Programs
+> — Alan J. Perlis. Structure & Interpretation of Computer Programs
 
 Welcome to the Foundation branch!
 
@@ -27,7 +27,7 @@ Stay curious, stay engaged, and keep the joy of discovery in your programming jo
 
 > Every computer program is a model, hatched in the mind, of a real or mental process.
 >
-> Alan J. Perlis. Structure & Interpretation of Computer Programs
+> — Alan J. Perlis. Structure & Interpretation of Computer Programs
 
 
 ### Feature: Validate
