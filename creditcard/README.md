@@ -56,23 +56,28 @@ In this project, you will create a tool called `creditcard` to:
 - Get information about card brands and issuers.
 - Issue new card numbers.
 
-### Allowed
-
-Only built-in packages are allowed.
-
 ### Resources
 
 - [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
 
-### Setup
+### General Instructions
 
-The project MUST be compiled by the following command in the project root directory:
+- Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
+- Your program MUST be able to compile successfully.
+- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
+- Only built-in packages are allowed. If not, you will get `0` grade.
+- Add `AUTHORS.md` file which contains your login followed by a newline. 
+
+```sh
+$ cat -e ./AUTHORS.md
+author1$
+```
+
+- The project MUST be compiled by the following command in the project's root directory:
 
 ```sh
 $ go build -o creditcard .
 ```
-
-This will produce an executable `creditcard`, which will be used in examples below.
 
 ### Feature: Validate
 
