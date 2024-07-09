@@ -172,3 +172,9 @@ Requirements:
 $ ./creditcard issue --brands=brands.txt --issuers=issuers.txt --brand=VISA --issuer="Kaspi Gold"
 4400430180300003
 ```
+
+## Support
+
+If you get stuck, try your code with the example inputs from the project. You should get the same results. If not, read the description again. Maybe you missed something, or your code is wrong. After the examples work, but your answer is still wrong, make some test cases you can check by hand. See if they work with your code. Use the complete example input.
+
+If you are still stuck, ask a friend for help or take a break and come back later.
