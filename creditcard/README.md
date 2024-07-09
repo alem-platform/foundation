@@ -160,6 +160,8 @@ Halyk Bonus:440563
 Jusan Pay:539545
 ```
 
+Notice, that both `brands.txt` and `issuers.txt` enumerate different kinds of a card, where each line consists of two parts. First part is the name of the kind and the second is the number prefix (i.e. numbers the card starts with). The parts are separated by `:` (two dots) symbol.
+
 ### Feature: Issue
 
 The `issue` feature generates a random valid credit card number for a specified brand and issuer.
@@ -167,6 +169,7 @@ The `issue` feature generates a random valid credit card number for a specified 
 Requirements:
 
 - Pick a random number for the specified brand and issuer.
+- Exit with status 1 if there is any error.
 
 ```sh
 $ ./creditcard issue --brands=brands.txt --issuers=issuers.txt --brand=VISA --issuer="Kaspi Gold"
