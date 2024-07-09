@@ -210,6 +210,14 @@ If you get stuck, try your code with the example inputs from the project. You sh
 If you are still stuck, ask a friend for help or take a break and come back later.
 
 
+## Guidelines from Author
+
+**Learn how to decompose problems**
+
+When you're trying to tackle a large project or problem, it's easy to become discouraged by just how big or intimidating the task seems. Instead of being intimidated, work on breaking the problem up (decomposing the problem) into smaller and smaller subproblems, until each individual subproblem seems manageable and doable.
+
+Source: https://www.reddit.com/r/learnprogramming/wiki/faq/
+
 ## Author
 
 This project has been created by:
