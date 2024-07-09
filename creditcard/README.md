@@ -64,6 +64,16 @@ Only built-in packages are allowed.
 
 - [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
 
+### Setup
+
+The project MUST be compiled by the following command in the project root directory:
+
+```sh
+$ go build -o creditcard .
+```
+
+This will produce an executable `creditcard`, which will be used in examples below.
+
 ### Feature: Validate
 
 The `validate` feature checks if a credit card number is valid using Luhn's Algorithm.
@@ -203,4 +213,5 @@ Alimukhamed Tlekbai, Team Lead at Doodocs.kz
 
 Contacts:
 - Email: tlekbai@doodocs.kz
+- [GitHub](https://github.com/atlekbai/)
 - [LinkedIn](https://www.linkedin.com/in/atlekbai/)
