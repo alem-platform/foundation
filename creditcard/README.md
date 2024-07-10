@@ -6,7 +6,7 @@
 - I/O
 - Data Representation
 
-### Short Description
+### Abstract
 
 In this project, you will create a tool called `creditcard` to:
 
