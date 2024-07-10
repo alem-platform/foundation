@@ -1,35 +1,21 @@
-# Warm Welcome
-
-> I think that it's extraordinarily important that we in computer science keep **fun** in computing.
->
-> — Alan J. Perlis. Structure & Interpretation of Computer Programs
-
-Welcome to the Foundation branch!
-
-Congratulations on completing your bootcamp journey. This significant achievement shows your dedication and commitment to becoming a Software Engineer. Yet, the path ahead is filled with more challenges that requires you to stay consistent to reach your goals.
-
-As you dive deeper into Programming, it is important to keep fun and curiosity alive throughout your career. Programming is a field where you need to keep learning and adapting.
-
-Let's explore what you will learn during our Foundation branch:
-- Bits and bytes  
-- Algorithms and Data Structures  
-- I/O: File, TCP/IP
-- Data Representation: Binary, CSV, JSON, Base64
-- Internet: HTTP, REST API
-- Basic networking concepts  
-- Concurrency and parallelism basics
-- Basic software design principles  
-- Testing and test-driven development
-
-Stay curious, stay engaged, and keep the joy of discovery in your programming journey. Welcome once again, and let's start this exciting adventure together!
-
 # creditcard
 
-| Learning Objectives   |
-| --------------------- |
-| `Algorithms`          |
-| `I/O`                 |
-| `Data Representation` |
+### Learning Objectives
+
+- Algorithms
+- I/O
+- Data Representation
+
+### Short Description
+
+In this project, you will create a tool called `creditcard` to:
+
+- Validate credit card numbers.
+- Generate possible card numbers.
+- Get information about card brands and issuers.
+- Issue new card numbers.
+
+### Context
 
 > Every computer program is a model, hatched in the mind, of a real or mental process.
 >
@@ -48,13 +34,6 @@ These numbers are not random. They follow specific patterns:
 - American Express numbers start with 34 or 37.
 
 Credit card numbers also include a "checksum" that helps detect errors. This is done using Luhn's Algorithm, a simple math formula that checks if the number is valid.
-
-In this project, you will create a tool called `creditcard` to:
-
-- Validate credit card numbers.
-- Generate possible card numbers.
-- Get information about card brands and issuers.
-- Issue new card numbers.
 
 ### Resources
 
