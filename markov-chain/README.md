@@ -9,21 +9,13 @@
 
 ### Abstract
 
-This project will teach you on that thinking first about data-structures first is the best way to design programs.
+In this project you will build a text generator using Markov Chain algorithm.
 
-<!-- 
-    Tip: Write a short description of what student
-    will do during this project.
--->
+Similar algorithms are used in your phones. For example, when you type a word in the 
+keyboard it suggests you the next the most probable word.
 
-
-In this project, you will create a tool called `creditcard` to:
-
-- Validate credit card numbers.
-- Generate possible card numbers.
-- Get information about card brands and issuers.
-- Issue new card numbers.
-
+This project teaches you, that before starting writing code, first you should consider what your
+data-structures will be, how would you store your data and then think of your code.
 
 ### Context
 
@@ -96,7 +88,7 @@ How do we define a word? The simple answer might be a group of letters, but it's
 
 **Data Structure**
 
-Let's consider our program's requirements. We're aiming to handle a book's worth of text - say, 100,000 words or more. Our output should be substantial, perhaps thousands of words, and we want results in seconds, not minutes. With this scale, we can't afford inefficient algorithms.
+Let's consider our program's requirements. We're aiming to handle a book's worth of text - say, 100,000 words or more. Our output should be perhaps hundreds or thousands of words, and we want results in seconds, not minutes. With this scale, we can't afford inefficient algorithms.
 
 The Markov process demands we digest all input before producing output. This means we need a clever way to store and access our data. We're looking for a structure that can represent a prefix and its suffixes efficiently. It should allow quick lookups, handle prefixes of any length, and accommodate a growing list of suffixes.
 
@@ -107,55 +99,129 @@ This approach gives us a clear path forward. By focusing on these key requiremen
 
 ### Resources
 
-<!-- Tip: useful resources here -->
-- [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
+- [the_great_gatsby.txt](./the_great_gatsby.txt)
+
 
 ### General Instructions
-
-
-!!! You have to choose most-appropriate data-structure
-
-<!-- 
-    Tip: general instructions here
-    You MUST change this points to align with your project.
--->
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
 - Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
 - Only built-in packages are allowed. If not, you will get `0` grade.
-- Add `AUTHORS.md` file which contains your login followed by a newline. 
-
-```sh
-$ cat -e ./AUTHORS.md
-author1$
-```
-
 - The project MUST be compiled by the following command in the project's root directory:
 
 ```sh
-$ go build -o creditcard .
+$ go build -o markovchain .
 ```
 
 ### Mandatory Part
 
-<!-- 
-    Tip: write here what student should do
+**Baseline**
 
-    Provide project description
-    Provide examples
-    Provide requirements    
--->
+By default your program must read from stdin the whole text and generate the text according to Markov Chain algorithm.
 
+Outcomes:
+- Program prints generated text according to the Markov Chain algorithm.
 
-MANDATORY PART HERE
+Notes:
+- Suffix length is ALWAYS 1 word.
+- Default prefix length is 2 words.
+- Default starting prefix is the first N words of the text.
+- Default number of maximum words is 100.
+
+Constraints:
+- If any error print an error message indicating the reason.
+- The code should stop generating code after it printed maximum number of words or encountered the very last word in the text.
+
+Examples:
+
+```sh
+$ cat the_great_gatsby.txt | ./markovchain | cat -e
+Chapter 1 In my younger and more stable, become for a job. He hadn't eat anything for a long, silent time. It was the sound of someone splashing after us over the confusion a long many-windowed room which overhung the terrace. Eluding Jordan's undergraduate who was well over sixty, and Maurice A. Flink and the great bursts of leaves growing on the air now. "How do you want? What do you like Europe?" she exclaimed surprisingly. "I just got here a minute. "Yes." He hesitated. "Was she killed?" "Yes." "I thought you didn't, if you'll pardon my--you see, I carry$
+```
+
+```sh
+$ cat the_great_gatsby.txt | ./markovchain | wc -w
+   100
+```
+
+```sh
+$ ./markovchain
+Error: no input text
+```
+
+**Number of words**
+
+Your program must be able to accept maximum number of words to be generated.
+
+Outcomes:
+- Program prints generated text according to the Markov Chain algorithm limited by the given maximum number of words.
+
+Constraints:
+- Given number can't be negative.
+- Given number can't be more 10,000.
+- If any error print an error message indicating the reason.
+
+```sh
+$ cat the_great_gatsby.txt | ./markovchain -w 10 | cat -e
+Chapter 1 In my younger and more stable, become for$
+```
+
+**Prefix**
+
+Your program must be able to accept the starting prefix.
+
+Outcomes:
+- Program prints generated text according to the Markov Chain algorithm that starts with the given prefix.
+
+Constraints:
+- Given prefix must be present in the original text.
+- If any error print an error message indicating the reason.
+
+```sh
+$ cat the_great_gatsby.txt | ./markovchain -w 10 -p "to play" | cat -e
+to play for you in that vast obscurity beyond the$
+```
+
+**Prefix length**
+
+Your program must be able to accept the prefix length.
+
+Outcomes:
+- Program prints generated text according to the Markov Chain algorithm with the given prefix length.
+
+Constraints:
+- Given prefix length can't be negative.
+- Given prefix length can't be greater than 5.
+- If any error print an error message indicating the reason.
+
+```sh
+$ cat the_great_gatsby.txt | ./markovchain -w 10 -p "to something funny" -l 3
+```
+
+**Usage**
+
+Your program must be able to print usage information.
+
+Outcomes:
+- Program prints usage text.
+
+```sh
+$ ./markovchain --help
+Markov Chain text generator.
+
+Usage:
+  markovchain [-w <N>] [-p <S>] [-l <N>]
+  markovchain --help
+
+Options:
+  --help        Show this screen.
+  -w N          Number of maximum words
+  -p S          Starting prefix
+  -l N          Prefix length
+```
 
 ## Support
-
-<!--
-    Tip: leave this section unchanged.
-    This is a static text, which student must read in every project.
--->
 
 If you get stuck, try your code with the example inputs from the project. You should get the same results. If not, read the description again. Maybe you missed something, or your code is wrong. After the examples work, but your answer is still wrong, make some test cases you can check by hand. See if they work with your code. Use the complete example input.
 
@@ -164,28 +230,27 @@ If you are still stuck, ask a friend for help or take a break and come back late
 
 ## Guidelines from Author
 
-<!--
-    Tip: this section is optional. 
-    In case if you want to give some guidelines, write it here.
-    If no guidelines provided whole section can be removed.
--->
+Before diving into code, it's crucial to step back and consider the foundation of your program: the data structures. This project illustrates a fundamental principle of good software design - your choice of data representation often dictates the clarity and efficiency of your code.
 
-GUIDELINES FROM AUTHOR HERE.
+Start by asking yourself: How will I organize the information? What structures will best serve the problem at hand? Only after you've carefully thought through these questions should you begin to sketch out your algorithms and write code.
+
+This approach might seem like extra work upfront, but it pays dividends. A well-chosen data structure can make your code simpler, more readable, and often more efficient. It's like choosing the right tools before starting a job - with the proper foundations in place, the rest of the work becomes much more straightforward.
+
+Remember, in programming, as in many things, thoughtful preparation is key to success. Take the time to get your data structures right, and you'll find the coding process smoother and more enjoyable.
+
+To give you some real-life example of such a principle is how git was designed:
+
+> git actually has a simple design, with stable and reasonably well-documented data structures. In fact, I'm a huge proponent of designing your code around the data, rather than the other way around, and I think it's one of the reasons git has been fairly successful […] I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important.
+
+Good data structures are the foundation of clear, efficient code. They often simplify programming more than clever algorithms can. Invest time in designing your data representation first. This approach usually leads to more maintainable and understandable programs, regardless of their size or complexity.
 
 ## Author
 
 This project has been created by:
 
-<!-- Tip: type here author's name, position and company -->
-<!-- John Doe, DevOps at Google -->
-
-AUTHOR NAME HERE.
+Alimukhamed Tlekbai, Team Lead at Doodocs.kz
 
 Contacts:
-<!-- 
-    Tip: list of contacts to reach the author.
-    It can be email, linkedin, telegram, instagram, etc.
--->
-- Email: EMAIL HERE.
-- [GitHub](https://github.com/LOGIN_HERE/)
-- [LinkedIn](https://www.linkedin.com/in/LOGIN_HERE/)
+- Email: tlekbai@doodocs.kz
+- [GitHub](https://github.com/atlekbai/)
+- [LinkedIn](https://www.linkedin.com/in/atlekbai/)

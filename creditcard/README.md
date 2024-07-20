@@ -45,13 +45,6 @@ Credit card numbers also include a "checksum" that helps detect errors. This is 
 - Your program MUST be able to compile successfully.
 - Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
 - Only built-in packages are allowed. If not, you will get `0` grade.
-- Add `AUTHORS.md` file which contains your login followed by a newline. 
-
-```sh
-$ cat -e ./AUTHORS.md
-author1$
-```
-
 - The project MUST be compiled by the following command in the project's root directory:
 
 ```sh
