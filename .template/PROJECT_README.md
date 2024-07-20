@@ -3,17 +3,34 @@
 -->
 # project_name
 
+### Learning Objectives
+
 <!-- 
     Tip: here you must be a list of learning objectives
     that cover your project
 -->
 
-| Learning Objectives   |
-| --------------------- |
-| `Algorithms`          |
-| `I/O`                 |
-| `Data Representation` |
+- Algorithms
+- I/O
+- Data Representation
 
+### Abstract
+
+<!-- 
+    Tip: Write a short description of what student
+    will do during this project.
+-->
+
+
+In this project, you will create a tool called `creditcard` to:
+
+- Validate credit card numbers.
+- Generate possible card numbers.
+- Get information about card brands and issuers.
+- Issue new card numbers.
+
+
+### Context
 
 <!-- Tip: citation is optional -->
 
@@ -31,14 +48,6 @@
 
 PROJECT CONTEXT HERE.
 
-<!-- Tip: short list of what student will do -->
-In this project, you will create a tool called `creditcard` to:
-
-- Validate credit card numbers.
-- Generate possible card numbers.
-- Get information about card brands and issuers.
-- Issue new card numbers.
-
 ### Resources
 
 <!-- Tip: useful resources here -->
@@ -46,8 +55,10 @@ In this project, you will create a tool called `creditcard` to:
 
 ### General Instructions
 
-<!-- Tip: general instructions here -->
-<!-- You MUST change this points to align with your project. -->
+<!-- 
+    Tip: general instructions here
+    You MUST change this points to align with your project.
+-->
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
