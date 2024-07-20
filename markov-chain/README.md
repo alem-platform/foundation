@@ -215,10 +215,10 @@ Usage:
   markovchain --help
 
 Options:
-  --help        Show this screen.
-  -w N          Number of maximum words
-  -p S          Starting prefix
-  -l N          Prefix length
+  --help  Show this screen.
+  -w N    Number of maximum words
+  -p S    Starting prefix
+  -l N    Prefix length
 ```
 
 ## Support
