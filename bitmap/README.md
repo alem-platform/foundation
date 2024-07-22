@@ -36,7 +36,7 @@ Bitmap images are a fundamental type of digital image format, used in a wide ran
 $ go build -o bitmap .
 ```
 
-- If an error occurs, the program must exit with status 1 and display a clear and understandable error.
+- If an error occurs, the program must exit with non zero status code and display a clear and understandable error.
 
 ### Mandatory Part
 
@@ -48,7 +48,7 @@ Requirements:
 
 - The program must be able to print header by sub command `header`.
 - Output the bmp file header information.
-- Exit with status 1 if there is any error.
+- If any error print an error message with non zero exit status.
 
 Example:
 
@@ -106,8 +106,8 @@ Requirements:
 - `horizontal`, `h`, `horizontally`, `hor`
 - `vertical`, `v`, `vertically`, `ver`.
 
-2. Save the mirrored image to a new file.
-3. Exit with status 1 if there is any error.
+2. The `--mirror` option can be combined using multiple times.
+3. If any error print an error message with non zero exit status.
 
 > Mirroring a photo vertically is replacing pixels from `top` to `bottom`.
 
@@ -145,6 +145,8 @@ Requirements:
 > You can use any algorithm to realize `grayscale`, `negative`, `pixelate`,`blur` filters.
 
 2. Filters should be applied sequentially in the order they are provided.
+3. The `--filter` option can be combined using multiple times.
+4. If any error print an error message with non zero exit status.
 
 Examples:
 
@@ -216,8 +218,7 @@ Requirements:
 
 1. The program must be able to rotate the image to the any direction using the parameter `--rotate`. The flag `--rotate` should handle options `right` (clockwise), `90`, `180`, `270`, `left`, `-90`, `-180`, `-270`.
 2. The `--rotate` option can be used multiple times to achieve the desired rotation. For example, using `--rotate=right` twice will rotate the image by 180 degrees.
-3. Save the rotated image to a new file.
-4. Exit with status 1 if there is any error.
+3. If any error print an error message with non zero exit status.
 
 Example:
 
@@ -238,8 +239,8 @@ The `crop` feature trims a bitmap image according to specified parameters.
 Requirements:
 
 1. The program crops a bitmap image using the `--crop` flag. The `--crop` option accepts either 2 or 4 values in pixels.
-2. Save the cropped image to a new file.
-3. Exit with status 1 if there is any error.
+2. The `--crop` option can be combined using multiple times.
+3. If any error print an error message with non zero exit status.
 
 How the `--crop` option works:
 
@@ -287,6 +288,21 @@ Result:
 
 ![sample-cropped-45-45-50-50](./sample-cropped-45-45-50-50.jpg)
 
+**Combine aply options**
+
+The program can combine options of `apply` subcommand.
+
+Requirements:
+
+1. The program options must be processed sequentially. This means that if each option of subcommand `apply` were executed one after the other, the result would be the same.
+2. If any error print an error message with non zero exit status.
+
+```sh
+$ ./bitmap apply --mirror=horizontal --rotate=rigth --filter=negative --rotate=left --filter=green sample.bmp sample-mh-rr-fn-rl-fg.bmp
+```
+
+![sample-mh-rr-fn-rl-fg](./sample-mh-rr-fn-rl-fg.bmp)
+
 **Help**
 
 The `help` feature provides information about how to use the program.
@@ -294,7 +310,8 @@ The `help` feature provides information about how to use the program.
 Requirements:
 
 1. The program should display a help message when the `-h` or `--help` flag is used.
-2. The help message should include information about all available flags and their usage.
+2. The help feature has maximum priority, which means that when a program operates by combining options with a help flag, program must print help message.
+3. The help message should include information about all available flags and their usage.
 
 Example:
 
@@ -323,11 +340,11 @@ The options are:
 
 ### Edge Cases
 
-- The program should only accept `bitmap` files, if it is not a bitmap file, then the program must exit with status 1 and display error message.
+- The program should only accept `bitmap` files, if it is not a bitmap file, then the program must exit with non zero status code and display error message.
 - The program should only accept valid `uncompressed` `24-bit color` `bitmap` files.
 - The program takes file names as the last arguments.
 - The program can overwrite an existing file.
-- If you receive an invalid flag (option), show an error with exit status 1.
+- If you receive an invalid flag (option), show an error with non-zero exit code.
 
 ## Guidelines from Author
 
