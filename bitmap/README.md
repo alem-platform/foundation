@@ -46,6 +46,7 @@ The `Header` feature reads a bitmap image file and outputs its properties.
 
 Requirements:
 
+- The program must be able to print header by sub command `header`.
 - Output the bmp file header information.
 - Exit with status 1 if there is any error.
 
@@ -69,7 +70,7 @@ $
 ```
 
 ```sh
-$ ./bitmap --header-info sample.bmp
+$ ./bitmap header sample.bmp
 BMP Header:
 - FileType BM
 - FileSizeInBytes 518456
@@ -88,7 +89,7 @@ $
 Error example:
 
 ```sh
-$ ./bitmap --header-info salem.txt
+$ ./bitmap header salem.txt
 Error: salem.txt is not bitmap file
 $ echo $?
 1
@@ -115,7 +116,7 @@ Example:
 ```sh
 $ ls -A
 sample.bmp
-$ ./bitmap --mirror=horizontal sample.bmp sample-mirrored-horizontal.bmp
+$ ./bitmap apply --mirror=horizontal sample.bmp sample-mirrored-horizontal.bmp
 $ ls -A
 result.bmp sample.bmp
 $
@@ -150,7 +151,7 @@ Examples:
 Filter blue:
 
 ```sh
-$ ./bitmap --filter=blue sample.bmp sample-filtered-blue.bmp
+$ ./bitmap apply --filter=blue sample.bmp sample-filtered-blue.bmp
 ```
 
 Result:
@@ -160,7 +161,7 @@ Result:
 Filter red:
 
 ```sh
-$ ./bitmap --filter=red sample.bmp sample-filtered-red.bmp
+$ ./bitmap apply --filter=red sample.bmp sample-filtered-red.bmp
 ```
 
 Result:
@@ -170,7 +171,7 @@ Result:
 Filter green:
 
 ```sh
-$ ./bitmap --filter=green sample.bmp sample-filtered-green.bmp
+$ ./bitmap apply --filter=green sample.bmp sample-filtered-green.bmp
 ```
 
 Result:
@@ -180,7 +181,7 @@ Result:
 Filter negative:
 
 ```sh
-$ ./bitmap --filter=negative sample.bmp sample-filtered-negative.bmp
+$ ./bitmap apply --filter=negative sample.bmp sample-filtered-negative.bmp
 ```
 
 Result:
@@ -190,7 +191,7 @@ Result:
 Filter pixelate:
 
 ```sh
-$ ./bitmap --filter=pixelate sample.bmp sample-filtered-pixelate.bmp
+$ ./bitmap apply --filter=pixelate sample.bmp sample-filtered-pixelate.bmp
 ```
 
 Result:
@@ -200,7 +201,7 @@ Result:
 Filter blur:
 
 ```sh
-$ ./bitmap --filter=blur sample.bmp sample-filtered-blur.bmp
+$ ./bitmap apply --filter=blur sample.bmp sample-filtered-blur.bmp
 ```
 
 Result:
@@ -223,7 +224,7 @@ Example:
 Rotate image to right twice:
 
 ```sh
-$ ./bitmap --rotate=right --rotate=right sample.bmp sample-rotated-right-right.bmp
+$ ./bitmap apply --rotate=right --rotate=right sample.bmp sample-rotated-right-right.bmp
 ```
 
 Result:
@@ -251,7 +252,7 @@ How the `--crop` option works:
 Examples:
 
 ```sh
-$ ./bitmap --header-info sample.bmp | grep "Pixels"
+$ ./bitmap header sample.bmp | grep "Pixels"
 - WidthInPixels 480
 - HeightInPixels 360
 ```
@@ -259,7 +260,7 @@ $ ./bitmap --header-info sample.bmp | grep "Pixels"
 Example of cropping a photo:
 
 ```sh
-$ ./bitmap --crop=20-20-100-100 sample.bmp sample-cropped-20-20-80-80.bmp
+$ ./bitmap apply --crop=20-20-100-100 sample.bmp sample-cropped-20-20-80-80.bmp
 ```
 
 Result:
@@ -269,7 +270,7 @@ Result:
 Example of cropping a photo without width and height:
 
 ```sh
-$ ./bitmap --crop=400-300 sample.bmp sample-cropped-400-300.bmp
+$ ./bitmap apply --crop=400-300 sample.bmp sample-cropped-400-300.bmp
 ```
 
 Result:
@@ -279,7 +280,7 @@ Result:
 Example of cropping a photo with multiple options:
 
 ```sh
-$ ./bitmap --crop=20-20-100-100 --crop=25-25-50-50 sample.bmp sample-cropped-45-45-50-50.bmp
+$ ./bitmap apply --crop=20-20-100-100 --crop=25-25-50-50 sample.bmp sample-cropped-45-45-50-50.bmp
 ```
 
 Result:
@@ -298,13 +299,25 @@ Requirements:
 Example:
 
 ```sh
-Usage: bitmap [options] input_file [output_file]
+$ ./bitmap
+Usage:
+  bitmap <command> [arguments]
 
-About:
-  bitmap - ...
+The commands are:
+  header    prints bitmap file header information
+  apply     applies processing to the image and saves it to the file
+$ ./bitmap header --helps
+Usage:
+  bitmap header <source_file>
 
-Options:
-  -h, --help  - ...
+Description:
+  Prints bitmap file header information
+$ ./bitmap apply --help
+Usage:
+  bitmap apply [options] <source_file> <output_file>
+
+The options are:
+  -h, --help      prints program usage information
   ...
 ```
 
@@ -313,7 +326,6 @@ Options:
 - The program should only accept `bitmap` files, if it is not a bitmap file, then the program must exit with status 1 and display error message.
 - The program should only accept valid `uncompressed` `24-bit color` `bitmap` files.
 - The program takes file names as the last arguments.
-- The program options must be processed sequentially. This means that if each option were executed one after the other, the result would be the same.
 - The program can overwrite an existing file.
 - If you receive an invalid flag (option), show an error with exit status 1.
 
@@ -321,11 +333,11 @@ Options:
 
 **How to start**
 
-When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header info`, `apply filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature.
+When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header`, `apply filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature.
 
-Okay, let's split project to steps, with starting from feature `--header-info`.
+Okay, let's split project to steps, with starting from subcommand `header`.
 
-Step 1: Program must read `--header-info` and `filename` given as argument. But okay, lets split it to mini tasks.
+Step 1: Program must read option `header` and `filename` given as argument. But okay, lets split it to mini tasks.
 
 > 1.  How to read arguments given to the program?
 > 2.  How to understand is program should work in header info mode.
