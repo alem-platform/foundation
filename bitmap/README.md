@@ -213,7 +213,7 @@ The `rotate` feature rotates a bitmap image by a specified angle.
 
 Requirements:
 
-1. The program must be able to rotate the image to the any direction using the parameter `--rotate`. The flag `--rotate` should handle options `right`, `left`, `180`, `90`, `-90`, `-180`.
+1. The program must be able to rotate the image to the any direction using the parameter `--rotate`. The flag `--rotate` should handle options `right` (clockwise), `90`, `180`, `270`, `left`, `-90`, `-180`, `-270`.
 2. The `--rotate` option can be used multiple times to achieve the desired rotation. For example, using `--rotate=right` twice will rotate the image by 180 degrees.
 3. Save the rotated image to a new file.
 4. Exit with status 1 if there is any error.
