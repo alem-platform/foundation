@@ -288,7 +288,7 @@ Result:
 
 ![sample-cropped-45-45-50-50](./sample-cropped-45-45-50-50.jpg)
 
-**Combine aply options**
+**Combine apply options**
 
 The program can combine options of `apply` subcommand.
 
