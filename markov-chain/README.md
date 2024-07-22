@@ -197,6 +197,7 @@ Constraints:
 
 ```sh
 $ cat the_great_gatsby.txt | ./markovchain -w 10 -p "to something funny" -l 3
+to something funny the last two days," remarked Wilson. "That's
 ```
 
 **Usage**
