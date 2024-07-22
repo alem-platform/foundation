@@ -30,13 +30,6 @@ Bitmap images are a fundamental type of digital image format, used in a wide ran
 - Your program MUST be able to compile successfully.
 - Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
 - Only [standard packages](https://pkg.go.dev/std) are allowed. If not, you will get `0` grade.
-- Add `AUTHORS.md` file which contains your login followed by a newline.
-
-```sh
-$ cat -e ./AUTHORS.md
-author1$
-```
-
 - The project MUST be compiled by the following command in the project's root directory:
 
 ```sh
@@ -45,16 +38,18 @@ $ go build -o bitmap .
 
 - If an error occurs, the program must exit with status 1 and display a clear and understandable error.
 
-### Features: Header Info
+### Mandatory Part
 
-The `Header Info` feature reads a bitmap image file and outputs its properties.
+**Header**
+
+The `Header` feature reads a bitmap image file and outputs its properties.
 
 Requirements:
 
 - Output the bmp file header information.
 - Exit with status 1 if there is any error.
 
-**Usage Example:**
+Example:
 
 ![sample.bmp](./sample.bmp)
 
@@ -90,17 +85,16 @@ $
 
 > This is an example of the program output, your output can be expanded to provide more details and additional information about other headers.
 
-**Error example:**
+Error example:
 
 ```sh
 $ ./bitmap --header-info salem.txt
 Error: salem.txt is not bitmap file
 $ echo $?
 1
-$
 ```
 
-### Feature: Mirror
+**Mirror**
 
 The `mirror` feature mirrors a bitmap image either horizontally or vertically.
 
@@ -116,7 +110,7 @@ Requirements:
 
 > Mirroring a photo vertically is replacing pixels from `top` to `bottom`.
 
-**Usage Example:**
+Example:
 
 ```sh
 $ ls -A
@@ -131,7 +125,7 @@ Result:
 
 ![sample-mirrored-horizontal.bmp](./sample-mirrored-horizontal.bmp)
 
-### Feature: Apply Filter
+**Apply Filter**
 
 The program should be able to apply various filters to images using the `--filter` flag.
 
@@ -151,7 +145,7 @@ Requirements:
 
 2. Filters should be applied sequentially in the order they are provided.
 
-**Usage Example:**
+Examples:
 
 Filter blue:
 
@@ -213,7 +207,7 @@ Result:
 
 ![sample-filtered-blur](sample-filtered-blur.jpg)
 
-### Feature: Rotate
+**Rotate**
 
 The `rotate` feature rotates a bitmap image by a specified angle.
 
@@ -224,7 +218,7 @@ Requirements:
 3. Save the rotated image to a new file.
 4. Exit with status 1 if there is any error.
 
-**Usage Example:**
+Example:
 
 Rotate image to right twice:
 
@@ -236,7 +230,7 @@ Result:
 
 ![sample-rotated-right-right.jpg](./sample-rotated-right-right.jpg)
 
-### Feature: Crop
+**Crop**
 
 The `crop` feature trims a bitmap image according to specified parameters.
 
@@ -254,7 +248,7 @@ How the `--crop` option works:
 
 > When the file size is changed, the headers must also be updated.
 
-**Usage Example:**
+Examples:
 
 ```sh
 $ ./bitmap --header-info sample.bmp | grep "Pixels"
@@ -292,16 +286,16 @@ Result:
 
 ![sample-cropped-45-45-50-50](./sample-cropped-45-45-50-50.jpg)
 
-### Feature: Help
+**Help**
 
-- The `help` feature provides information about how to use the program.
+The `help` feature provides information about how to use the program.
 
 Requirements:
 
 1. The program should display a help message when the `-h` or `--help` flag is used.
 2. The help message should include information about all available flags and their usage.
 
-**Example:**
+Example:
 
 ```sh
 Usage: bitmap [options] input_file [output_file]
@@ -327,7 +321,7 @@ Options:
 
 **How to start**
 
-When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header info`, `apply filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature. .
+When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header info`, `apply filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature.
 
 Okay, let's split project to steps, with starting from feature `--header-info`.
 
@@ -346,7 +340,7 @@ Step 2: Program must read the file header information. So abstract, let's decomp
 
 Step 3: Program must print header information.
 
-This is my example of decomposing, my advise is **do not forgot about decomposing probmels, it will always help to you**.
+This is my example of decomposing, my advise is **do not forgot about decomposing problems, it will always help you**.
 
 ## Support
 
