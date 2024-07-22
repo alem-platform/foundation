@@ -1,12 +1,12 @@
 # creditcard
 
-### Learning Objectives
+## Learning Objectives
 
 - Algorithms
 - I/O
 - Data Representation
 
-### Abstract
+## Abstract
 
 In this project, you will create a tool called `creditcard` to:
 
@@ -15,7 +15,7 @@ In this project, you will create a tool called `creditcard` to:
 - Get information about card brands and issuers.
 - Issue new card numbers.
 
-### Context
+## Context
 
 > Every computer program is a model, hatched in the mind, of a real or mental process.
 >
@@ -35,11 +35,11 @@ These numbers are not random. They follow specific patterns:
 
 Credit card numbers also include a "checksum" that helps detect errors. This is done using Luhn's Algorithm, a simple math formula that checks if the number is valid.
 
-### Resources
+## Resources
 
 - [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
 
-### General Instructions
+## General Criteria
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
@@ -51,7 +51,9 @@ Credit card numbers also include a "checksum" that helps detect errors. This is 
 $ go build -o creditcard .
 ```
 
-### Feature: Validate
+## Mandatory Part
+
+### Validate
 
 The `validate` feature checks if a credit card number is valid using Luhn's Algorithm.
 
@@ -78,7 +80,7 @@ OK
 OK
 ```
 
-### Feature: Generate
+### Generate
 
 The `generate` feature creates possible credit card numbers by replacing asterisks (*) with digits.
 
@@ -110,7 +112,7 @@ $ echo $?
 1
 ```
 
-### Feature: Information
+### Information
 
 The `information` feature provides details about the card based on data in `brands.txt` and `issuers.txt`.
 
@@ -161,7 +163,7 @@ Jusan Pay:539545
 
 Notice, that both `brands.txt` and `issuers.txt` enumerate different kinds of a card, where each line consists of two parts. First part is the name of the kind and the second is the number prefix (i.e. numbers the card starts with). The parts are separated by `:` (two dots) symbol.
 
-### Feature: Issue
+### Issue
 
 The `issue` feature generates a random valid credit card number for a specified brand and issuer.
 

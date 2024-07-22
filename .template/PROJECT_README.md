@@ -3,7 +3,7 @@
 -->
 # project_name
 
-### Learning Objectives
+## Learning Objectives
 
 <!-- 
     Tip: here you must be a list of learning objectives
@@ -14,7 +14,7 @@
 - I/O
 - Data Representation
 
-### Abstract
+## Abstract
 
 <!-- 
     Tip: Write a short description of what student
@@ -30,7 +30,7 @@ In this project, you will create a tool called `creditcard` to:
 - Issue new card numbers.
 
 
-### Context
+## Context
 
 <!-- Tip: citation is optional -->
 
@@ -48,15 +48,15 @@ In this project, you will create a tool called `creditcard` to:
 
 PROJECT CONTEXT HERE.
 
-### Resources
+## Resources
 
 <!-- Tip: useful resources here -->
 - [Anatomy of a Credit Card: The Luhn Algorithm Explained](https://www.groundlabs.com/blog/anatomy-of-a-credit-card/)
 
-### General Instructions
+## General Criteria
 
 <!-- 
-    Tip: general instructions here
+    Tip: general criteria here
     You MUST change this points to align with your project.
 -->
 
@@ -70,7 +70,7 @@ PROJECT CONTEXT HERE.
 $ go build -o creditcard .
 ```
 
-### Mandatory Part
+## Mandatory Part
 
 <!-- 
     Tip: write here what student should do
