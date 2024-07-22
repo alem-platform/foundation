@@ -1,13 +1,13 @@
 # markov-chain
 
-### Learning Objectives
+## Learning Objectives
 
 - Algorithms
 - I/O
 - File Handling
 - Basic software design principles
 
-### Abstract
+## Abstract
 
 In this project you will build a text generator using Markov Chain algorithm.
 
@@ -17,7 +17,7 @@ keyboard it suggests you the next the most probable word.
 This project teaches you that before starting writing code you should consider what your
 data-structures will be, how would you store your data and only then think of your code.
 
-### Context
+## Context
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
 >
@@ -97,12 +97,12 @@ Our program will work in two stages: first, building this data structure from th
 Let's call a prefix and all its possible suffixes a "state" - that's the usual term in Markov models. We'll need to add suffixes one by one, not knowing in advance how many we'll encounter. And when it's time to generate output, we must be able to pick a suffix at random.
 This approach gives us a clear path forward. By focusing on these key requirements, we can design a solution that's both elegant and efficient.
 
-### Resources
+## Resources
 
 - [the_great_gatsby.txt](./the_great_gatsby.txt)
 
 
-### General Instructions
+## General Criteria
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
@@ -114,9 +114,9 @@ This approach gives us a clear path forward. By focusing on these key requiremen
 $ go build -o markovchain .
 ```
 
-### Mandatory Part
+## Mandatory Part
 
-**Baseline**
+### Baseline
 
 By default your program must read from stdin the whole text and generate the text according to Markov Chain algorithm.
 
@@ -150,7 +150,7 @@ $ ./markovchain
 Error: no input text
 ```
 
-**Number of words**
+### Number of words
 
 Your program must be able to accept maximum number of words to be generated.
 
@@ -167,7 +167,7 @@ $ cat the_great_gatsby.txt | ./markovchain -w 10 | cat -e
 Chapter 1 In my younger and more stable, become for$
 ```
 
-**Prefix**
+### Prefix
 
 Your program must be able to accept the starting prefix.
 
@@ -183,7 +183,7 @@ $ cat the_great_gatsby.txt | ./markovchain -w 10 -p "to play" | cat -e
 to play for you in that vast obscurity beyond the$
 ```
 
-**Prefix length**
+### Prefix length
 
 Your program must be able to accept the prefix length.
 
@@ -200,7 +200,7 @@ $ cat the_great_gatsby.txt | ./markovchain -w 10 -p "to something funny" -l 3
 to something funny the last two days," remarked Wilson. "That's
 ```
 
-**Usage**
+### Usage
 
 Your program must be able to print usage information.
 
