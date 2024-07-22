@@ -17,6 +17,10 @@ In this project, you will create a tool called `bitmap` to:
 
 ### Context
 
+Have you ever wondered how pictures are stored as files?
+
+Imagine a grid of tiny squares, like a paper in math notebook. Each square (pixel) can be colored in one of the available colors. The more squares there are in the grid, the more detailed the image will be. A file that stores such a grid of pixels is called a bitmap.
+
 Bitmap images are a fundamental type of digital image format, used in a wide range of applications from simple graphics to complex image processing. Understanding how to work with bitmap files and apply transformations is a crucial skill in computer graphics and image processing.
 
 ### Resources
