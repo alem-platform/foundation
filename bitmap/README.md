@@ -27,6 +27,7 @@ Bitmap images are a fundamental type of digital image format, used in a wide ran
 
 - Read about `bitmap file` [here](https://en.wikipedia.org/wiki/BMP_file_format) or [here](https://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/bmp_file_format/bmp_file_format.htm)
 - Read about `magic bytes` in file [here](https://gist.github.com/leommoore/f9e57ba2aa4bf197ebc5)
+- Read about [RGB color formats](https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats)
 
 ### General Instructions
 
