@@ -40,7 +40,7 @@ $ go build -o bitmap .
 
 ### Mandatory Part
 
-**Header**
+#### Header
 
 The `Header` feature reads a bitmap image file and outputs its properties.
 
@@ -95,7 +95,7 @@ $ echo $?
 1
 ```
 
-**Mirror**
+#### Mirror
 
 The `mirror` feature mirrors a bitmap image either horizontally or vertically.
 
@@ -126,7 +126,7 @@ Result:
 
 ![sample-mirrored-horizontal.bmp](./sample-mirrored-horizontal.bmp)
 
-**Apply Filter**
+#### Filter
 
 The program should be able to apply various filters to images using the `--filter` flag.
 
@@ -210,7 +210,7 @@ Result:
 
 ![sample-filtered-blur](sample-filtered-blur.jpg)
 
-**Rotate**
+#### Rotate
 
 The `rotate` feature rotates a bitmap image by a specified angle.
 
@@ -232,7 +232,7 @@ Result:
 
 ![sample-rotated-right-right.jpg](./sample-rotated-right-right.jpg)
 
-**Crop**
+#### Crop
 
 The `crop` feature trims a bitmap image according to specified parameters.
 
@@ -288,9 +288,9 @@ Result:
 
 ![sample-cropped-45-45-50-50](./sample-cropped-45-45-50-50.jpg)
 
-**Combine apply options**
+#### Combine apply options
 
-The program can combine options of `apply` subcommand.
+The program can combine all options of `apply` subcommand.
 
 Requirements:
 
@@ -303,7 +303,7 @@ $ ./bitmap apply --mirror=horizontal --rotate=rigth --filter=negative --rotate=l
 
 ![sample-mh-rr-fn-rl-fg](./sample-mh-rr-fn-rl-fg.bmp)
 
-**Help**
+#### Help
 
 The `help` feature provides information about how to use the program.
 
@@ -350,7 +350,7 @@ The options are:
 
 **How to start**
 
-When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header`, `apply filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature.
+When you open this project, you may scare thinking how it large. But don't worry, if you decompose this project to mini tasks until it will be clear to you, you will see how it is possible. So firstly I recommend you decompose this project, and I will help you with decompose it on start, but after you will do it with self or teammates. I recommend do every feature (`header`, `filter`, ...) in order which I wrote, cause every next feature harder than previous, and doing previous feature, you will understand how to make next feature.
 
 Okay, let's split project to steps, with starting from subcommand `header`.
 
