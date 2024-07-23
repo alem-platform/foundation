@@ -103,9 +103,10 @@ func (с CSV) ReadCSVLine(file *os.File) ([]string, error) {
 - Reads one line from open input file
 - Returns pointer to line, with terminator removed, or nil if EOF occurred
 - Calling ReadCSVLine in a loop allows you to sequentially read each line from the file, continuing until the end of the file is reached.
-- Assumes that input lines are terminated by \r, \n, \r\n, or EOF
+- Assumes that input lines are terminated by `\r`, `\n`, `\r\n`, or `EOF`
 - Return nil if memory limit exceeded.
 - The retured line should include the `\n`, if there is one at the end.
+- Using `bufio` is forbidden
 
 > **Note:**
 > What if you will read a file with 1000000 (a lot) entries?
@@ -146,6 +147,39 @@ func (с CSV) GetNumberOfFields() int {
 > **Note:**
 > Working with files and parsing can be complicated. Make sure to test well your library before submitting the project. For example try different file types, what happens when you pass a binary file?
 
+- You can create as many util functions as you need.
+
+- Global variables are forbidden
+
+- Allowed packages: "fmt", "os"
+
+#### Test
+
+Here is an example on how your functions will be tested:
+
+```go
+func main() {
+    file, err := os.Open("example.csv")
+    if err != nil {
+        fmt.Println("Error opening file:", err)
+        return
+    }
+    defer file.Close()
+
+    for {
+        fields, err := ReadCSVLine(file)
+        if err != nil {
+            if err == io.EOF {
+                break
+            }
+            fmt.Println("Error reading line:", err)
+            return
+
+        }
+    }
+}
+```
+
 ### Support
 
 <!--
@@ -159,22 +193,16 @@ If you are still stuck, ask a friend for help or take a break and come back late
 
 ### Guidelines from Author
 
-Starting a new project can be challenging. We are unlikely to get the design of a library or interface right on the first attempt. Here are some steps from where to begin:
+Starting a new project can be challenging, and designing a library or interface correctly is unlikely on the first attempt. Here are some detailed guidelines to help you get started:
 
-- Understand the CSV Format.
-- Write the ReadCSVLine Function:
-  - This function should read lines from a file byte-by-byte without using bufio. Focus on handling different line lengths and termination characters.
-  - Implement the GetCSVField Method:
-  - Ensure it correctly handles fields separated by commas and quoted fields.
-- Handle File Operations.
-- Add Error Handling.
+- Understand the CSV Format:
+
+  - Study the CSV format, including how fields are separated by commas and how quoted fields can contain commas. Recognize that double quotes within a field are represented by doubled quotes.
+  - Ensure you understand the RFC 4180 standard for CSV files, which describes the format in detail.
+
 - Implement the Basic Structure:
-  - Start by defining the Parser interface.
-- Test Your Implementation:
-  - Write test cases to validate your CSV parser.
-  - Use various CSV formats to ensure your parser handles edge cases correctly.
-
-Focus on ensuring your code handles edge cases like quoted fields with commas.
+  - Start by defining the CSV struct and its associated methods.
+  - Hide implementation details to ensure users do not rely on internal behavior that may change. Use unexported (private) variables and functions to keep details encapsulated within the implementation file.
 
 ### Author
 
