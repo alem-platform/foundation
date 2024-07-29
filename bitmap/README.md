@@ -52,7 +52,16 @@ The `Header` feature reads a bitmap image file and outputs its properties.
 Requirements:
 
 - The program must be able to print header by sub command `header`.
-- Output the bmp file header information.
+- The output header information of a bmp file must contain at least information about:
+  - `file type`
+  - `file size in bytes`
+  - `header size`
+  - `DIB header size`
+  - `width in pixels`
+  - `HeightIn pixels`
+  - `pixel size in bits`
+  - `image size in bytes`
+- We do not limit the number of headings, you can display more headings at your discretion.
 - If any error print an error message with non zero exit status.
 
 Example:
@@ -88,8 +97,6 @@ DIB Header:
 - ImageSizeInBytes 518402
 $
 ```
-
-> This is an example of the program output, your output can be expanded to provide more details and additional information about other headers.
 
 Error example:
 
