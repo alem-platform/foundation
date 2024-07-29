@@ -21,7 +21,36 @@ Have you ever wondered how pictures are stored as files?
 
 Imagine a grid of tiny squares, like a paper in math notebook. Each square (pixel) can be colored in one of the available colors. The more squares there are in the grid, the more detailed the image will be. A file that stores such a grid of pixels is called a bitmap.
 
-Bitmap images are a fundamental type of digital image format, used in a wide range of applications from simple graphics to complex image processing. Understanding how to work with bitmap files and apply transformations is a crucial skill in computer graphics and image processing.
+In fact, Bitmap stores not just a grid but also meta information about the file. Bitmap file can be divided into 2 main parts.
+
+1. Header
+2. Data
+
+**Header**:
+Header stores meta information about the file, such as what type of file it is, the file size, the height and width of the image, how many bits are allocated for the color of the pixel, and so
+
+**Data**:
+Contains the grid with colors.
+
+When reading the grid of colors, it is important to know how many bits can be allocated per pixel. It contained in the bitmap file header. For each pixel can be allocated 1 bit, 4 bits, 8 bits, 16 bits, 24 bits and 32 bits, where 1 bit is black and white and 24 bits is multi-color. Basically, most bitmap files allocate 24-bit per color.
+
+Why 24 bit?
+
+Any color can be obtained from three primary colors, these are red, green and blue (this is called RGB), where 8 bits are allocated for each primary color. That is, 8 bits for red, 8 bits for green and 8 bits for blue. If you represent the color in bits, it will look like this:
+
+- `000000001000110101100100` (24 bits) -> `00000000 10001101 01100100` (24 bits / 3) -> `0 141 100` (in decimal) -> `0x00 0x8D 0x64` (in hexadecimal) -> `#008D64` -> dark green.
+
+But when reading a cell allocated to one pixel, you will notice that it stores colors the other way around, not RGB but BRG. It means, color green will be stored as `01100100(blue) 10001101(green) 00000000(red)` instead of `00000000(red) 10001101(green) 01100100(blue)`.
+
+Example of a 2 by 2 grid, where 24 bits per color are allocated per pixel:
+
+![2x2 image](2x2-grid.png)
+
+In bits:
+
+![2x2 in bits](2x2-gird-bits.png)
+
+Usually pixels are stored "bottom-up", starting in the lower left corner, going from left to right, and then row by row from the bottom to the top of the image. But it is also worth considering that the pixels can be stored "upside-down" from left top corner.
 
 ### Resources
 
