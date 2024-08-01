@@ -97,7 +97,7 @@ You will build a CSV library in Go. Implement following functions:
 interface:
 
 ```go
-type CSV interface  {
+type CSVParser interface  {
     ReadCSVLine(file *os.File) ([]string, error)
     GetCSVField(n int) (string, error)
     GetNumberOfFields() int
@@ -107,7 +107,7 @@ type CSV interface  {
 This function should read a new line from a CSV file.
 
 ```go
-func ReadCSVLine(file *os.File) ([]string, error)
+func (c CSV) ReadCSVLine(file *os.File) ([]string, error)
     // Implementation goes here
 ```
 
@@ -128,7 +128,7 @@ func ReadCSVLine(file *os.File) ([]string, error)
 This function should return the nth field.
 
 ```go
-func GetCSVField(n int) (string, error) {
+func (c CSV) GetCSVField(n int) (string, error) {
     // Implementation goes here
 }
 
@@ -144,7 +144,7 @@ func GetCSVField(n int) (string, error) {
 #### GetNumberOfFields
 
 ```go
-func GetNumberOfFields() int {
+func (c CSV) GetNumberOfFields() int {
     // Implementation goes here
 }
 ```
