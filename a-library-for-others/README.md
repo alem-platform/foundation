@@ -32,10 +32,12 @@ You will learn how to:
 Comma-separated values, or CSV, is a simple and widely used format for representing tabular data. Each row in a CSV file corresponds to a line of text, with individual fields separated by commas. Here’s an example:
 
 ```csv
-,"2SOMHz","400MHz","Lines o f "
-,"RlOOOO","Pentium I I " , " source code "
-C,0.36 s e c , 0 . 3 0 sec.150
-lava , 4.9 .9 .2 , 10
+John,Doe,120 jefferson st.,Riverside, NJ, 08075
+Jack,McGinnis,220 hobo Av.,Phila, PA,09119
+"John ""Da Man""",Repici,120 Jefferson St.,Riverside, NJ,08075
+Stephen,Tyler,"7452 Terrace ""At the Plaza"" road",SomeTown,SD, 91234
+,Blankman,,SomeTown, SD, 00298
+"Joan ""the bone"", Anne",Jet,"9th, at Terrace plc",Desert City,CO,00123
 ```
 
 CSV files are commonly read and written by programs like spreadsheets, making them a standard format for data exchange and storage. When viewed in a table, CSV data might look like this:
@@ -92,12 +94,21 @@ You will build a CSV library in Go. Implement following functions:
 
 #### ReadCSVLine
 
+interface:
+
+```go
+type CSV interface  {
+    ReadCSVLine(file *os.File) ([]string, error)
+    GetCSVField(n int) (string, error)
+    GetNumberOfFields() int
+}
+```
+
 This function should read a new line from a CSV file.
 
 ```go
-func (с CSV) ReadCSVLine(file *os.File) ([]string, error) {
+func ReadCSVLine(file *os.File) ([]string, error)
     // Implementation goes here
-}
 ```
 
 - Reads one line from open input file
@@ -117,7 +128,7 @@ func (с CSV) ReadCSVLine(file *os.File) ([]string, error) {
 This function should return the nth field.
 
 ```go
-func (с CSV) GetCSVField(n int) (string, error) {
+func GetCSVField(n int) (string, error) {
     // Implementation goes here
 }
 
@@ -133,7 +144,7 @@ func (с CSV) GetCSVField(n int) (string, error) {
 #### GetNumberOfFields
 
 ```go
-func (с CSV) GetNumberOfFields() int {
+func GetNumberOfFields() int {
     // Implementation goes here
 }
 ```
