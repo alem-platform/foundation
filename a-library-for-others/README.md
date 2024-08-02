@@ -85,7 +85,7 @@ You will build a CSV library in Go. Implement following interface methods:
 
 ```go
 type CSVParser interface  {
-    ReadCSVLine(file *os.File) ([]string, error)
+    ReadCSVLine(file *os.File) (string, error)
     GetCSVField(n int) (string, error)
     GetNumberOfFields() int
 }
@@ -96,7 +96,7 @@ type CSVParser interface  {
 This function should read a new line from a CSV file.
 
 ```go
-func (c CSV) ReadCSVLine(file *os.File) ([]string, error) {
+func (c CSV) ReadCSVLine(file *os.File) (string, error) {
     // Implementation goes here
 }
 ```
