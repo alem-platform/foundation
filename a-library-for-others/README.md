@@ -10,18 +10,23 @@
 
 - File Handling in Go
 - CSV Parsing
-- Error Handling
 - Interfaces
+- Error Handling
 
 ### Abstract
 
-Welcome to your next project. In this assignment, you will delve into the world of CSV files — a ubiquitous format for storing and sharing tabular data. This project is not merely an exercise in coding; it is an essential step in your journey to becoming a software engineer.
+Welcome to your next project! This assignment is not just about writing code; it's a crucial step in your journey to becoming a proficient software engineer. You'll implement methods for a new library, focusing on several key principles of design and development.
 
-You will learn how to:
+Here's what you'll focus on:
 
-- Develop an Intuitive Library: You are tasked with designing a library that simplifies the process of handling CSV data.
-- Master Resource Management: Learn to manage resources efficiently, ensuring optimal performance of your code.
-- Implement Robust Error Handling: Develop the ability to anticipate, identify, and resolve errors, enhancing the reliability of your software.
+- Develop an Intuitive Library: Your task is to design a user-friendly library that streamlines a common task.
+- Go Interfaces: Interfaces in Go act as contracts between supplier and customer. Your goal is to provide services that are consistent and convenient, offering enough functionality to be easy to use without becoming overly complex.
+- Implement Parsing: You will develop the skills needed to parse complex data structures, an essential skill for handling various data formats.
+- Information Hiding: Determine what information should be visible and what should remain private. A well-designed interface offers straightforward access to its components while concealing implementation details, allowing changes without affecting users.
+- Resource Management: Understand who is responsible for managing memory and other limited resources. The main challenge here is managing shared copies of information efficiently.
+- Error Handling: Decide who detects errors, who reports them, and how. When an error is detected, determine the recovery process.
+
+This project will provide hands-on experience in file manipulation and parsing, essential skills for any developer. You will learn to manually process CSV data.
 
 ### Context
 
@@ -47,19 +52,6 @@ CSV files are commonly read and written by programs like spreadsheets, making th
 | John Doe  | 28  | Engineer   |
 | Jane Doe  | 32  | Designer   |
 | Sam Smith | 24  | Developer  |
-
-Why CSV?
-
-- Simplicity: CSV files are plain text, making them easy to create, read, and edit using any text editor.
-- Portability: Because they are simple text files, CSV files can be easily shared across different systems and platforms without compatibility issues.
-- Efficiency: CSV files are compact and efficient for storing large datasets without the overhead associated with more complex file formats.
-- Compatibility: CSV is supported by a wide range of applications, including spreadsheet programs like Microsoft Excel and Google Sheets, databases, and various data processing tools.
-
-Why handle CSV Files?
-
-- Data Exchange: CSV is a universal format for data exchange between different systems and applications.
-- Data Storage: It provides a lightweight and easy-to-read method for storing large datasets.
-- Data Analysis: CSV files are frequently used in data analysis and machine learning projects due to their simplicity and compatibility with various tools.
 
 This project will provide hands-on experience in file manipulation and parsing, essential skills for any developer. You will learn to manually process CSV data, enhancing your understanding of fundamental programming concepts.
 
@@ -90,11 +82,7 @@ $ go build -o csvparser .
 
 ### Mandatory Part
 
-You will build a CSV library in Go. Implement following functions:
-
-#### ReadCSVLine
-
-interface:
+You will build a CSV library in Go. Implement following interface methods:
 
 ```go
 type CSVParser interface  {
@@ -104,11 +92,14 @@ type CSVParser interface  {
 }
 ```
 
+#### ReadCSVLine
+
 This function should read a new line from a CSV file.
 
 ```go
-func (c CSV) ReadCSVLine(file *os.File) ([]string, error)
+func (c CSV) ReadCSVLine(file *os.File) ([]string, error) {
     // Implementation goes here
+}
 ```
 
 - Reads one line from open input file
