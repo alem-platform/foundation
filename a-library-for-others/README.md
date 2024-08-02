@@ -52,7 +52,7 @@ CSV files are commonly read and written by programs like spreadsheets, making th
 | Jane Doe  | 32  | Designer   |
 | Sam Smith | 24  | Developer  |
 
-This project will provide hands-on experience in file manipulation and parsing, essential skills for any developer. You will learn to manually process CSV data, enhancing your understanding of fundamental programming concepts.
+However, working with CSV files can be challenging. Historically, there wasn’t a clear, standardized specification for CSV which lead to many different implementations and parsing issues. Variations in how fields are quoted, how commas within fields are handled, and other inconsistencies can complicate parsing and processing CSV data.
 
 ### Resources
 
