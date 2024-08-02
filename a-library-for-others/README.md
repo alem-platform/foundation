@@ -25,7 +25,7 @@ Here's what you'll focus on:
 - Resource Management: Understand who is responsible for managing memory and other limited resources.
 - Error Handling: When working with files and parsing, a major challenge could be managing errors. Determine who detects errors, who reports them, and how they are reported. Establish a clear process for recovery when an error is detected.
 
-This project will provide hands-on experience in file manipulation and parsing, essential skills for any developer. You will learn to manually process CSV data.
+This project will provide hands-on experience in file manipulation and parsing. You will not only learn to manually process CSV data but also gain experience in designing and working with interfaces.
 
 ### Context
 
