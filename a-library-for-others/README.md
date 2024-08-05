@@ -186,7 +186,7 @@ If you are still stuck, ask a friend for help or take a break and come back late
 
 ### Guidelines from Author
 
-Starting a new project can be challenging, it's not easy to get the design of a library or interface perfect on the first attempt. Don't worry about getting everything right from the start; instead, take it step by step and improve the design as you go. Here are some short list to help you get started:
+Starting a new project can be challenging, it's not easy to get the design of a library or interface perfect on the first attempt. Don't worry about getting everything right from the start; instead, take it step by step and improve the design as you go. Here is some short list to help you get started:
 
 - Understand the problem you're solving, it is important because it gives you a clear picture of the context.
 - Look up information on the CSV format to understand how it works. Knowing the format can help you handle the data correctly.
