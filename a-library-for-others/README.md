@@ -105,7 +105,6 @@ func (c CSV) ReadLine(file *os.File) (string, error) {
 - Assumes that input lines are terminated by `\r`, `\n`, `\r\n`, or `EOF`
 - Return `nil` if memory limit exceeded.
 - The retured line should include the `\n`, if there is one at the end.
-- Using `bufio` is forbidden
 
 > **Note:**
 > What if you will read a file with 1000000 (a lot) entries?
