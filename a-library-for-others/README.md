@@ -36,12 +36,10 @@ This project will provide hands-on experience in file manipulation and parsing. 
 Comma-separated values, or CSV, is a simple and widely used format for representing tabular data. Each row in a CSV file corresponds to a line of text, with individual fields separated by commas. Here’s an example:
 
 ```csv
-John,Doe,120 jefferson st.,Riverside, NJ, 08075
-Jack,McGinnis,220 hobo Av.,Phila, PA,09119
-"John ""Da Man""",Repici,120 Jefferson St.,Riverside, NJ,08075
-Stephen,Tyler,"7452 Terrace ""At the Plaza"" road",SomeTown,SD, 91234
-,Blankman,,SomeTown, SD, 00298
-"Joan ""the bone"", Anne",Jet,"9th, at Terrace plc",Desert City,CO,00123
+Name,Age,Occupation
+John Doe,28,Engineer
+Jane Doe,32,Designer
+Sam Smith,24,Developer
 ```
 
 CSV files are commonly read and written by programs like spreadsheets, making them a standard format for data exchange and storage. When viewed in a table, CSV data might look like this:
