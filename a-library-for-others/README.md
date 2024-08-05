@@ -70,7 +70,7 @@ However, working with CSV files can be challenging. Historically, there wasn’t
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
 - Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
-- Only built-in packages are allowed. If not, you will get `0` grade.
+- Only built-in packages and `io.Reader` are allowed. If not, you will get `0` grade.
 
 ### Mandatory Part
 
