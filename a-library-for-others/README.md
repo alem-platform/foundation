@@ -89,7 +89,7 @@ type CSVParser interface  {
 This function should read a new line from a CSV file.
 
 ```go
-func (c CSV) ReadCSVLine(file *os.File) (string, error) {
+func (c CSV) ReadLine(file *os.File) (string, error) {
     // Implementation goes here
 }
 ```
@@ -111,7 +111,7 @@ func (c CSV) ReadCSVLine(file *os.File) (string, error) {
 This function should return the nth field.
 
 ```go
-func (c CSV) GetCSVField(n int) (string, error) {
+func (c CSV) GetField(n int) (string, error) {
     // Implementation goes here
 }
 
