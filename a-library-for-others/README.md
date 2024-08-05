@@ -78,8 +78,8 @@ You will build a CSV library in Go. Implement following interface methods:
 
 ```go
 type CSVParser interface  {
-    ReadCSVLine(file *os.File) (string, error)
-    GetCSVField(n int) (string, error)
+    ReadLine(r io.Reader) (string, error)
+    GetField(n int) (string, error)
     GetNumberOfFields() int
 }
 ```
@@ -142,10 +142,6 @@ func (c CSV) GetNumberOfFields() int {
 > Working with files and parsing can be complicated. Make sure to test well your library before submitting the project. For example try different file types, what happens when you pass a binary file?
 
 - You can create as many util functions as you need.
-
-- Global variables are forbidden
-
-- Allowed packages: "fmt", "os"
 
 #### Test
 
