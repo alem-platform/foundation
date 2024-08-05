@@ -186,17 +186,13 @@ If you are still stuck, ask a friend for help or take a break and come back late
 
 ### Guidelines from Author
 
-Starting a new project can be challenging, and designing a library or interface correctly is unlikely on the first attempt. Here are some detailed guidelines to help you get started:
+Starting a new project can be challenging, it's not easy to get the design of a library or interface perfect on the first attempt. Don't worry about getting everything right from the start; instead, take it step by step and improve the design as you go. Here are some short list to help you get started:
 
-- Understand the CSV Format:
-
-  - Study the CSV format, including how fields are separated by commas and how quoted fields can contain commas. Recognize that double quotes within a field are represented by doubled quotes.
-  - Ensure you understand the RFC 4180 standard for CSV files, which describes the format in detail.
-
-- Implement the Basic Structure:
-  - Start by defining the CSV struct and its associated methods.
-  - Hide implementation details to ensure users do not rely on internal behavior. Use private variables and functions to keep details encapsulated.
-  - Use the Read(b []byte) method to read lines from a CSV file.
+- Understand the problem you're solving, it is important because it gives you a clear picture of the context.
+- Look up information on the CSV format to understand how it works. Knowing the format can help you handle the data correctly.
+- Start by defining the `CSV` struct and its associated methods.
+- Use private variables and functions to keep details encapsulated.
+- Use the `Read(b []byte)` method to read lines from a CSV file.
 
 ### Author
 
