@@ -103,7 +103,6 @@ func (c CSV) ReadLine(file *os.File) (string, error) {
 - Returns pointer to line, with terminator removed, or `nil` if EOF occurred
 - Calling ReadCSVLine in a loop allows you to sequentially read each line from the file, continuing until the end of the file is reached.
 - Assumes that input lines are terminated by `\r`, `\n`, `\r\n`, or `EOF`
-- Return `nil` if memory limit exceeded.
 - If the line has a missing or extra quote, it should return an empty string and an `ErrQuote` error.
 - The retured line should include the `\n`, if there is one at the end.
 
@@ -127,7 +126,6 @@ func (c CSV) GetField(n int) (string, error) {
 - Fields are separated by commas
 - Fields may be surrounded by "..."; such quotes are removed
 - There can be an arbitrary number of fields of any length
-- Returns `nil` if memory limit exceeded
 
 #### GetNumberOfFields
 
