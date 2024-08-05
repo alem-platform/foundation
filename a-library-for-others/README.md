@@ -192,7 +192,8 @@ Starting a new project can be challenging, and designing a library or interface 
 
 - Implement the Basic Structure:
   - Start by defining the CSV struct and its associated methods.
-  - Hide implementation details to ensure users do not rely on internal behavior that may change. Use unexported (private) variables and functions to keep details encapsulated within the implementation file.
+  - Hide implementation details to ensure users do not rely on internal behavior. Use private variables and functions to keep details encapsulated.
+  - Use the Read(b []byte) method to read lines from a CSV file.
 
 ### Author
 
