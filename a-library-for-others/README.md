@@ -89,7 +89,7 @@ var (
 )
 ```
 
-#### ReadCSVLine
+#### ReadLine
 
 This function should read a new line from a CSV file.
 
@@ -104,13 +104,14 @@ func (c CSV) ReadLine(file *os.File) (string, error) {
 - Calling ReadCSVLine in a loop allows you to sequentially read each line from the file, continuing until the end of the file is reached.
 - Assumes that input lines are terminated by `\r`, `\n`, `\r\n`, or `EOF`
 - Return `nil` if memory limit exceeded.
+- If the line has a missing or extra quote, it should return an empty string and an `ErrQuote` error.
 - The retured line should include the `\n`, if there is one at the end.
 
 > **Note:**
 > What if you will read a file with 1000000 (a lot) entries?
 > Each time ReadCSVLine is called, you should read only until newline. Avoid reading the entire file at once and then processing each line.
 
-#### GetCSVField
+#### GetField
 
 This function should return the nth field.
 
