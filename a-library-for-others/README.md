@@ -192,7 +192,7 @@ Starting a new project can be challenging, it's not easy to get the design of a 
 - Look up information on the CSV format to understand how it works. Knowing the format can help you handle the data correctly.
 - Start by defining the `CSV` struct and its associated methods.
 - Use private variables and functions to keep details encapsulated.
-- Use the `Read(b []byte)` method to read lines from a CSV file.
+- Use the `Read(b []byte)` method to read lines from a file.
 
 ### Author
 
