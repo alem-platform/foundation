@@ -25,31 +25,23 @@
 ## Code Quality
 
 ### Is the code well-organized and easy to follow?
-
 Block code "fences"
-
 ```
 Sample text here...
 ```
-
 Syntax highlighting
-
 ``` js
 var foo = function (bar) {
   return bar++;
 };
-
 console.log(foo(5));
 ```
-
 Tables
-
 | Option | Description |
 | ------ | ----------- |
 | data   | path to data files to supply the data that will be passed into templates. |
 | engine | engine to be used for processing templates. Handlebars is the default. |
 | ext    | extension to be used for dest files. |
-
 - [ ] Yes
 - [ ] No
 
