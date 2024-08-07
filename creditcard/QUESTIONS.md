@@ -82,14 +82,8 @@ $ go build -o creditcard .
 - [ ] Yes
 - [ ] No
 
-### What is the reviewer's final word?
-Based on your impression of program performance and the team's ability to answer questions and explain its logic.
-- [ ] PASS
-- [ ] FAIL
-
 ## Detailed feedback
 
 ### What was great? What you liked the most about the program and the team performance? 
 
 ### What could be better? How those improvements could positively impact the outcome?
-
