@@ -1,9 +1,7 @@
 # Evaluation Form
 
 This questionnaire is designed to assist with the project assessment.
-
 Start with listing team capitan's username. Then answer the questions and check the criteria that are met. Add the comments and highlights
-
 Be kind and honest! Good luck.
 
 ## General criteria
@@ -26,7 +24,9 @@ If any of these criteria are not met, the project receives the status "critical 
 - [ ] No
 
 ### 5. Compilation Command: The project must be compiled with the command 
+```
 $ go build -o creditcard .
+```
 - [ ] Yes
 - [ ] No
 
