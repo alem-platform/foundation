@@ -1,23 +1,25 @@
-# Evaluation Form
+## General criteria
+**If any of these criteria are not met, the project receives the status "critical failure" and must be restarted. You can't file an appeal for this decision.**
 
-## Critical Criterion
-
-### Your code MUST be written in accordance with gofumpt. If not, you will be graded 0 automatically.
+### 1. Code Formatting: Code follows gofumpt formatting standards.
 - [ ] Yes
 - [ ] No
 
-### Your program MUST be able to compile successfully.
+### 2. Compilation: Code must compile successfully.
 - [ ] Yes
 - [ ] No
 
-### Your program MUST not exit unexpectedly (any panics: nil-pointer dereference, index out of range etc.). If so, you will be get 0 during the defence.
+### 3. Error Handling: Program must not exit unexpectedly due to errors (e.g., nil-pointer dereference, index out of range). 
 - [ ] Yes
 - [ ] No
 
-### Only built-in packages are allowed. If not, you will get 0 grade.
+### 4. Packages: Only built-in Go packages are used.  
 - [ ] Yes
 - [ ] No
 
-### The project MUST be compiled by the following command in the project's root directory:
+### 5. Compilation Command: The project must be compiled with the command 
+```
+$ go build -o creditcard .
+```
 - [ ] Yes
 - [ ] No
