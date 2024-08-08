@@ -1,11 +1,11 @@
 # Evaluation Form
 
-This questionnaire is designed to assist with the project assessment.
-Start with listing team capitan's username. Then answer the questions and check the criteria that are met. Add the comments and highlights
-Be kind and honest! Good luck.
+**This questionnaire is designed to assist with the project assessment.**
+**Start with listing team capitan's username. Then answer the questions and check the criteria that are met. Add the comments and highlights**
+**Be kind and honest! Good luck.**
 
 ## General criteria
-If any of these criteria are not met, the project receives the status "critical failure" and must be restarted. You can't file an appeal for this decision.
+**If any of these criteria are not met, the project receives the status "critical failure" and must be restarted. You can't file an appeal for this decision.**
 
 ### 1. Code Formatting: Code follows gofumpt formatting standards.
 - [ ] Yes
