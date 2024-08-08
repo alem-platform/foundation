@@ -1,9 +1,3 @@
-# Evaluation Form
-
-**This questionnaire is designed to assist with the project assessment.**
-**Start with listing team capitan's username. Then answer the questions and check the criteria that are met. Add the comments and highlights**
-**Be kind and honest! Good luck.**
-
 ## Program functionality
 
 ### Does the program correctly implement Luhn's Algorithm to validate credit card numbers?
