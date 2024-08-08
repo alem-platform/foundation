@@ -1,5 +1,13 @@
 # creditcard
 
+## Summary
+
+**Project type: **individual
+**Level of complexity:** medium
+**The number of reviews required:** 3 reviews
+**Deadline:** 14 days
+**Max XP:** 3000
+
 ## Learning Objectives
 
 - Algorithms
