@@ -1,50 +1,57 @@
-# Evaluation Form
+## Program functionality
 
-## Functionality
-
-### Does the program correctly read the input height and width?
+### Does the program correctly implement Luhn's Algorithm to validate credit card numbers?
 - [ ] Yes
 - [ ] No
 
-### Does the program correctly interpret and print the Minesweeper grid based on the given characters?
+### Does the program correctly replace up to 4 asterisks with digits and prints in ascending order?
 - [ ] Yes
 - [ ] No
 
-### Does the program correctly interpret and print the Minesweeper grid based on the given characters?
+### Does the program correctly outputs card number, validity, brand, and issuer?
 - [ ] Yes
 - [ ] No
 
-### Does the program handle edge cases such as minimum size (1x1) and the required number of bombs correctly?
+### Does the program handle inputs of various lengths correctly (minimum 13 digits)?
 - [ ] Yes
 - [ ] No
 
-### Does the program correctly handle improper inputs with appropriate error messages?
+### Does the program handle invalid inputs gracefully with appropriate error messages?
 - [ ] Yes
 - [ ] No
 
-## Code Quality
-**section desctiption**
-
-### Is the code well-organized and easy to follow?
+### Does the program correctly handle multiple entries and --stdin flag.
 - [ ] Yes
 - [ ] No
 
-### Is there anything else you would like to add regarding the code quality?
-- Support of all functions
-- How well are the functions and methods organized and named, and how does this affect the overall readability of the code?
-- How effective are the comments and documentation in explaining complex sections of the code, and are there areas where additional comments are needed?
-- In what ways does the code utilize different algorithms and data structures, and where could further optimization improve performance?
-
-## Bonus Features
-
-### Does the program provide clear instructions for input format?
+### Does the program correctly use brands.txt and issuers.txt?
 - [ ] Yes
 - [ ] No
 
-### General feedback: Is there anything else you would like to bring to team's attention?
-- What could be better
-- What could be worse
-- How those improvements could impact the outcome
-- How well are the functions and methods organized and named, and how does this affect the overall readability of the code?
-- How effective are the comments and documentation in explaining complex sections of the code, and are there areas where additional comments are needed?
-- In what ways does the code utilize different algorithms and data structures, and where could further optimization improve performance?
+### Does the program properly exit with status 1 on errors?
+- [ ] Yes
+- [ ] No
+
+### Does the program correctly generate a random valid number for specified brand and issuer?
+- [ ] Yes
+- [ ] No
+
+## Project presentation and code defense
+
+### Can the team clearly explain their code, logic, and design choices during the presentation?
+- [ ] Yes
+- [ ] No
+
+### Can the team effectively answer questions about their code and the decisions they made?
+- [ ] Yes
+- [ ] No
+
+### Can the team restore the code if you delete part of it?
+- [ ] Yes
+- [ ] No
+
+## Detailed feedback
+
+### What was great? What you liked the most about the program and the team performance? 
+
+### What could be better? How those improvements could positively impact the outcome?
