@@ -19,7 +19,7 @@
 
 ### 5. Compilation Command: The project must be compiled with the command 
 ```sh
-$ go build -o creditcard .
+go build -o creditcard .
 ```
 - [ ] Yes
 - [ ] No
