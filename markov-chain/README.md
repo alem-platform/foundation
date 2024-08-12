@@ -126,7 +126,7 @@ Outcomes:
 Notes:
 - Suffix length is ALWAYS 1 word.
 - Default prefix length is 2 words.
-- Default starting prefix is the first N words of the text.
+- Default starting prefix is the first N words of the text, where N is the length of the prefix.
 - Default number of maximum words is 100.
 
 Constraints:
