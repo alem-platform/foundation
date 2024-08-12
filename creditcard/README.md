@@ -86,7 +86,7 @@ The `generate` feature creates possible credit card numbers by replacing asteris
 
 Requirements:
 
-- Replace up to 4 asterisks (*) with digits. If more - it's an error.
+- Replace up to 4 asterisks (*) with digits. If more - it's an error. Asterisks should be at the end of the given credit card number.
 - Print the generated numbers to stdout.
 - Numbers must be printed in ascending order.
 - Exit with status 1 if there is any error.
