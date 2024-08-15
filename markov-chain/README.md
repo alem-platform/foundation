@@ -17,6 +17,15 @@ keyboard it suggests you the next the most probable word.
 This project teaches you that before starting writing code you should consider what your
 data-structures will be, how would you store your data and only then think of your code.
 
+## Summary
+
+**Project type:** individual
+**Level of complexity:** medium
+**The number of reviews required:** 3 reviews
+**Deadline:** 7 days
+**Max XP:** 2500
+
+
 ## Context
 
 > Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
