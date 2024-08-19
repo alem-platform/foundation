@@ -99,7 +99,7 @@ This approach gives us a clear path forward. By focusing on these key requiremen
 
 ## Resources
 
-- [the_great_gatsby.txt](https://github.com/alem-platform/foundation/blob/main/markov-chain/the_great_gatsby.txt)
+- [the_great_gatsby.txt](https://raw.githubusercontent.com/alem-platform/foundation/main/markov-chain/the_great_gatsby.txt)
 
 
 ## General Criteria
