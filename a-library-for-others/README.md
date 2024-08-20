@@ -1,5 +1,13 @@
 # A Library for Others
 
+## Summary
+
+**Project type:** individual
+**Level of complexity:** medium
+**The number of reviews required:** 3 reviews
+**Deadline:** 7 days
+**Max XP:** 2500
+
 ## Learning Objectives
 
 - File Handling in Go
