@@ -1,0 +1,66 @@
+## Program functionality
+
+### Does the ReadLine function read one line from the CSV file?
+
+- [ ] Yes
+- [ ] No
+
+### Does the ReadLine function return a pointer to the line with the terminator removed or nil if EOF occurred?
+- [ ] No
+
+### Does the ReadLine function handle lines terminated by \r, \n, \r\n, or EOF?
+- [ ] Yes
+- [ ] No
+
+### Does the ReadLine function return an empty string and an ErrQuote error if the line has a missing or extra quote?
+- [ ] No
+
+### Does the ReadLine function avoid reading the entire file at once?
+- [ ] No
+
+### Does the GetField function return the nth field from the last line read by ReadLine?
+- [ ] No
+
+### Does the GetField function return ErrFieldCount if n is less than 0 or beyond the last field?
+- [ ] Yes
+- [ ] No
+
+### Does the GetField function handle fields separated by commas?
+- [ ] Yes
+- [ ] No
+
+### Does the GetField function remove quotes surrounding fields?
+- [ ] Yes
+- [ ] No
+
+### Does the GetNumberOfFields function return the number of fields on the last line read by ReadLine?
+- [ ] Yes
+- [ ] No
+
+### Is the behavior of GetNumberOfFields undefined if called before ReadLine is called?
+- [ ] Yes
+- [ ] No
+
+### Does the GetNumberOfFields function behave well if called after ReadLine has encountered EOF?
+- [ ] Yes
+- [ ] No
+
+## Project presentation and code defense
+
+### Can the team clearly explain their code, logic, and design choices during the presentation?
+- [ ] Yes
+- [ ] No
+
+### Can the team effectively answer questions about their code and the decisions they made?
+- [ ] Yes
+- [ ] No
+
+### Can the team restore the code if you delete part of it?
+- [ ] Yes
+- [ ] No
+
+## Detailed feedback
+
+### What was great? What did you like the most about the program and the team performance? 
+
+### What could be better? How those improvements could positively impact the outcome?
