@@ -87,7 +87,7 @@ Requirements:
   - `header size`
   - `DIB header size`
   - `width in pixels`
-  - `HeightIn pixels`
+  - `height in pixels`
   - `pixel size in bits`
   - `image size in bytes`
 - We do not limit the number of headings, you can display more headings at your discretion.
