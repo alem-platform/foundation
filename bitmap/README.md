@@ -1,5 +1,14 @@
 # bitmap
 
+## Summary
+
+**Project type:** group (5 members)
+**Level of complexity:** medium
+**The number of reviews required:** 5 reviews
+**Deadline:** 7 days
+**Max XP:** 4000
+
+
 ### Learning Objectives
 
 - Bits and bytes
