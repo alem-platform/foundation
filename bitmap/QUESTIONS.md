@@ -1,7 +1,5 @@
 ## Program functionality
 
-## Header
-
 ### Does the program read and print header information correctly?
 - [ ] Yes
 - [ ] No
