@@ -339,7 +339,7 @@ Requirements:
 2. If any error print an error message with non zero exit status.
 
 ```sh
-$ ./bitmap apply --mirror=horizontal --rotate=rigth --filter=negative --rotate=left --filter=green sample.bmp sample-mh-rr-fn-rl-fg.bmp
+$ ./bitmap apply --mirror=horizontal --rotate=right --filter=negative --rotate=left --filter=green sample.bmp sample-mh-rr-fn-rl-fg.bmp
 ```
 
 ![sample-mh-rr-fn-rl-fg](./sample-mh-rr-fn-rl-fg.bmp)
