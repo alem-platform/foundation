@@ -90,7 +90,7 @@ type CSVParser interface  {
 ```
 
 - Reads one line from open input file
-- Returns pointer to line, with terminator removed, or `nil` if EOF occurred
+- Returns line, with terminator removed, or `nil` if EOF occurred
 - Calling `ReadLine` in a loop allows you to sequentially read each line from the file, continuing until the end of the file is reached.
 - Assumes that input lines are terminated by `\r`, `\n`, `\r\n`, or `EOF`
 - If the line has a missing or extra quote, it should return an empty string and an `ErrQuote` error.
