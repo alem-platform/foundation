@@ -2,7 +2,7 @@
 
 # Learning Objectives
 
-- TCP/IP
+- HTTP
 - Basic networking concepts
 - REST API
 
