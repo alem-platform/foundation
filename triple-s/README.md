@@ -1,16 +1,25 @@
 # triple-s
 
-# Learning Objectives
+## Learning Objectives
 
 - HTTP
 - Basic networking concepts
 - REST API
 
-# Abstract
+## Abstract
 
 In this project, you will develop a tool called `triple-s`, designed to implement a simplified version of S3 (Simple Storage Service) object storage. This tool will provide a REST API that allows clients to interact with the storage system, offering core functionalities such as creating and managing buckets, uploading, retrieving, and deleting files, as well as handling object metadata. The project aims to demonstrate key concepts of RESTful API design, basic networking, and data management, providing a practical foundation for understanding cloud storage solutions.
 
-# Context
+## Summary
+
+**Project type:** individual
+**Level of complexity:** medium
+**The number of reviews required:** 5 reviews
+**Deadline:** 14 days
+**Max XP:** 3000
+
+
+## Context
 
 Have you ever wondered how cloud storage services, like Amazon S3, manage to store and retrieve files seamlessly over the internet?
 
@@ -27,7 +36,7 @@ This project is a practical exploration of how such storage solutions operate un
 
 Whether you're aiming to grasp the basics of cloud storage or prepare for working on real-world distributed systems, `triple-s` offers a hands-on approach to learning these essential concepts.
 
-# Resources
+## Resources
 
 - Read about net/http package [here](https://go.dev/doc/articles/wiki/#tmp_3) and [here](https://pkg.go.dev/net/http)
 - Read about HTTP Server [here](https://gobyexample.com/http-server)
@@ -35,7 +44,7 @@ Whether you're aiming to grasp the basics of cloud storage or prepare for workin
 - Read about REST and API [here](https://en.wikipedia.org/wiki/REST), [here](https://en.wikipedia.org/wiki/API) and [here](https://aws.amazon.com/what-is/restful-api/).
 - Read about 3S API [here](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) (pull out only the necessary information)
 
-# General Criteria
+## General Criteria
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
@@ -50,9 +59,9 @@ $ go build -o triple-s .
 - If an error occurs during startup (e.g., invalid command-line arguments, failure to bind to a port), the program must exit with a non-zero status code and display a clear, understandable error message.
   During normal operation, the server must handle errors gracefully, returning appropriate HTTP status codes to the client without crashing.
 
-# Mandatory Part
+## Mandatory Part
 
-## Project Initialization
+### Project Initialization
 
 #### Overview:
 
@@ -71,7 +80,7 @@ Initiating the project with the HTTP server setup ensures that you have a stable
 
 Your program should take the port number and the path to the directory where the files will be stored as arguments.
 
-## Bucket Management
+### Bucket Management
 
 You will implement core functionalities to manage storage containers, known as "buckets" in the S3 paradigm. Buckets are fundamental units in the storage system where files (objects) are stored. This phase involves creating, listing, and deleting buckets via REST API endpoints, ensuring all responses conform to the XML format required by Amazon S3 specifications.
 
