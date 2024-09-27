@@ -318,63 +318,6 @@ Content-Type: application/json
 
 
 
----
-
-**Order Management**
-- **Create Orders**: Implement an endpoint to create new orders with customer details and items.
-- **Retrieve Orders**: Implement endpoints to retrieve all orders or a specific order by ID.
-- **Update Orders**: Implement an endpoint to modify existing orders.
-- **Delete Orders**: Implement an endpoint to delete orders.
-
-**Constraints**:
-
-- Validate all input data.
-- Ensure that product IDs in orders exist in the menu.
-- Only allow modifications to orders that are still open.
-- Closed orders cannot be modified or deleted.
-
-**Additional Data Management** 
-
-- **Menu Management**:
-
-  - **Create Menu Item**: Add new products to the menu.
-  - **Retrieve Menu Items**: Get a list of all menu items or a specific item.
-  - **Update Menu Item**: Modify details of a menu item.
-  - **Delete Menu Item**: Remove an item from the menu.
-
-- **Inventory Management**:
-
-  - Track ingredient stock levels.
-  - Decrease stock levels when orders are placed.
-  - Prevent orders if insufficient stock is available.
-  - Implement endpoints to update and retrieve inventory levels.
-
-- **Customer Management**:
-
-  - Store customer details and order history.
-  - Implement endpoints to retrieve customer information and order history.
-
-### Logging
-- Use `log/slog` to log significant events, errors, and information useful for debugging.
-- Include contextual information in logs (e.g., timestamps, order IDs).
-- Log at appropriate levels: `Info`, `Warning`, `Error`.
-
-### Error Handling and Validation
-- Validate input and provide meaningful error messages.
-- Return appropriate HTTP status codes:
-  - `200 OK` for successful GET requests.
-  - `201 Created` for successful POST requests.
-  - `400 Bad Request` for invalid input.
-  - `404 Not Found` when resources are not found.
-  - `500 Internal Server Error` for unexpected errors. 
-- Ensure error responses include a message explaining the error.
-
-### Layered Software Architecture
-
-
-
----
-
 
 ### Usage
 
