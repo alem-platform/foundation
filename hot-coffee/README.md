@@ -36,6 +36,7 @@ While commercial systems are complex and built for large-scale operations, this 
 - **Data Storage with JSON Files:** Instead of using a database, you will store all data locally in JSON files, managing orders, menu items, and ingredients.
 - **Layered Architecture:** Implement a structured approach to software design that separates concerns into different layers, making your code more maintainable and scalable.
 - **Logging:** Use Go's log/slog package to record significant events, aiding in debugging and monitoring the system's health.
+
 This project is a practical exploration of how order management and inventory systems operate under the hood, including how they handle data processing, manage concurrent requests, and ensure data integrity. By building the coffee shop management system, you'll dive into key topics like RESTful API design, data serialization, and software architecture principles.
 
 Whether you're aiming to grasp the basics of backend development or preparing to work on real-world enterprise applications, this project offers a hands-on approach to learning these essential concepts. It's an opportunity to understand not just how to write code, but how to design systems that solve real problems—skills that are invaluable in the software development industry.
@@ -516,6 +517,9 @@ Pay special attention to the interfaces.
 
 Don't forget to add drinks and food to the menu and bring the ingredients to your coffee shop before it opens.
 
+And stock up on patience ☕️.
+
+---
 ## Guidelines from Author
 Before you start writing code, think carefully about the structure of your future application. First, learn how the layered architecture of the application works. This will help to save a lot of time.
 
@@ -523,6 +527,7 @@ Try to implement the addition of a new inventory item and three levels first. Th
 
 Also remember about the SOLID.
 
+---
 ## Author
 
 This project has been created by:
