@@ -1,0 +1,38 @@
+[
+  {
+    "ingredient_id": "espresso_shot",
+    "name": "Espresso Shot",
+    "quantity": 500.0,
+    "unit": "shots"
+  },
+  {
+    "ingredient_id": "milk",
+    "name": "Milk",
+    "quantity": 10000.0,
+    "unit": "ml"
+  },
+  {
+    "ingredient_id": "milk_foam",
+    "name": "Milk Foam",
+    "quantity": 5000.0,
+    "unit": "ml"
+  },
+  {
+    "ingredient_id": "hot_water",
+    "name": "Hot Water",
+    "quantity": 20000.0,
+    "unit": "ml"
+  },
+  {
+    "ingredient_id": "flour",
+    "name": "Flour",
+    "quantity": 5000.0,
+    "unit": "g"
+  },
+  {
+    "ingredient_id": "butter",
+    "name": "Butter",
+    "quantity": 2000.0,
+    "unit": "g"
+  }
+]
