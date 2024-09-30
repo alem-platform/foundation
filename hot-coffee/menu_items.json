@@ -1,0 +1,82 @@
+[
+  {
+    "product_id": "latte",
+    "name": "Caffe Latte",
+    "description": "Espresso with steamed milk",
+    "price": 3.50,
+    "ingredients": [
+      {
+        "ingredient_id": "espresso_shot",
+        "quantity": 1.0
+      },
+      {
+        "ingredient_id": "milk",
+        "quantity": 200.0
+      }
+    ]
+  },
+  {
+    "product_id": "cappuccino",
+    "name": "Cappuccino",
+    "description": "Espresso with steamed milk and milk foam",
+    "price": 3.75,
+    "ingredients": [
+      {
+        "ingredient_id": "espresso_shot",
+        "quantity": 1.0
+      },
+      {
+        "ingredient_id": "milk",
+        "quantity": 150.0
+      },
+      {
+        "ingredient_id": "milk_foam",
+        "quantity": 50.0
+      }
+    ]
+  },
+  {
+    "product_id": "espresso",
+    "name": "Espresso",
+    "description": "Strong and bold coffee",
+    "price": 2.50,
+    "ingredients": [
+      {
+        "ingredient_id": "espresso_shot",
+        "quantity": 1.0
+      }
+    ]
+  },
+  {
+    "product_id": "americano",
+    "name": "Americano",
+    "description": "Espresso diluted with hot water",
+    "price": 2.75,
+    "ingredients": [
+      {
+        "ingredient_id": "espresso_shot",
+        "quantity": 1.0
+      },
+      {
+        "ingredient_id": "hot_water",
+        "quantity": 150.0
+      }
+    ]
+  },
+  {
+    "product_id": "croissant",
+    "name": "Croissant",
+    "description": "Freshly baked French croissant",
+    "price": 2.00,
+    "ingredients": [
+      {
+        "ingredient_id": "flour",
+        "quantity": 100.0
+      },
+      {
+        "ingredient_id": "butter",
+        "quantity": 50.0
+      }
+    ]
+  }
+]
