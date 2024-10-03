@@ -432,7 +432,7 @@ As part of the project requirements, you must use JSON files as the data storage
   {
     "ingredient_id": "blueberries",
     "name": "Blueberries",
-    "quantity": 2000,  In grams
+    "quantity": 2000,  // In grams
     "unit": "g"
   },
   {
