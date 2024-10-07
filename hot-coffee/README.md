@@ -1,5 +1,13 @@
 # hot-coffee
 
+## Summary
+
+**Project type:** group (2 members)
+**Level of complexity:** medium
+**The number of reviews required:** 4 reviews
+**Deadline:** 14 days
+**Max XP:** 5000
+
 ## Learning Objectives
 
 - REST API
