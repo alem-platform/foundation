@@ -27,11 +27,11 @@ The `hot-coffee` (coffee shop management system) project is a simplified version
 
 - **Manage Orders:** Create, modify, close, and delete customer orders efficiently.
 - **Oversee Inventory:** Track ingredient stock levels to prevent shortages and ensure freshness.
-- **Update the Menu:** Add new drinks or pastries, adjust prices, and keep the offerings current.
+- **Update the Menu:** Add new drinks or pastries, adjust prices as needed, and keep the offerings up to date.
 
 While commercial systems are complex and built for large-scale operations, this project focuses on the essentials:
 
-- **REST API:** You'll build a web service that allows different parts of the system—or even different systems—to communicate seamlessly over HTTP.
+- **REST API:** You'll build a web service that allows different parts of the system, or even different systems, to communicate seamlessly over HTTP.
 - **JSON Data Handling:** Learn how to encode and decode JSON to transmit data in a format that's both human-readable and machine-friendly.
 - **Data Storage with JSON Files:** Instead of using a database, you will store all data locally in JSON files, managing orders, menu items, and ingredients.
 - **Layered Architecture:** Implement a structured approach to software design that separates concerns into different layers, making your code more maintainable and scalable.
@@ -39,7 +39,7 @@ While commercial systems are complex and built for large-scale operations, this 
 
 This project is a practical exploration of how order management and inventory systems operate under the hood, including how they handle data processing, manage concurrent requests, and ensure data integrity. By building the coffee shop management system, you'll dive into key topics like RESTful API design, data serialization, and software architecture principles.
 
-Whether you're aiming to grasp the basics of backend development or preparing to work on real-world enterprise applications, this project offers a hands-on approach to learning these essential concepts. It's an opportunity to understand not just how to write code, but how to design systems that solve real problems—skills that are invaluable in the software development industry.
+Whether you're aiming to grasp the basics of backend development or preparing to work on real-world enterprise applications, this project offers a hands-on approach to learning these essential concepts. It's an opportunity to understand not just how to write code, but how to design systems that solve real problems — skills that are invaluable in the software development industry.
 
 ---
 ## Resources
@@ -54,8 +54,8 @@ Whether you're aiming to grasp the basics of backend development or preparing to
 
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
-- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
-- Only built-in packages are allowed. If not, you will get `0` grade.
+- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will get `0` during the defence.
+- Only built-in packages are allowed. If you use external packages, you will receive a grade of `0`.
 - The project MUST be compiled by the following command in the project's root directory:
 
 ```sh
@@ -205,7 +205,7 @@ type MenuItem struct {
 
 type MenuItemIngredient struct {
   IngredientID string `json:"ingredient_id"`
-  Quantity     int    `json:"quantity"`
+  Quantity     float64    `json:"quantity"`
 }
 ```
 
@@ -214,7 +214,7 @@ type MenuItemIngredient struct {
 type InventoryItem struct {
     IngredientID string `json:"ingredient_id"`
     Name         string `json:"name"`
-    Quantity     int    `json:"quantity"`
+    Quantity     float64    `json:"quantity"`
     Unit         string `json:"unit"`
 }
 ```
@@ -432,7 +432,7 @@ As part of the project requirements, you must use JSON files as the data storage
   {
     "ingredient_id": "blueberries",
     "name": "Blueberries",
-    "quantity": 2000, // In grams
+    "quantity": 2000,  // In grams
     "unit": "g"
   },
   {
