@@ -17,10 +17,10 @@ This project teaches you how to build a low-level HTTP client using raw TCP sock
 ## Context
 
 curl is a simple yet powerful tool for communicating with servers. Here are some common applications:
-* Fetching Web Pages: You can easily retrieve web pages by running a command like curl https://example.com, which will display the HTML content directly in your terminal.
-* Testing APIs: curl is frequently used to send requests to RESTful APIs. For instance, to fetch user information, you might use curl -X GET https://api.example.com/users/1.
-* Uploading Files: You can upload files to a server using the POST method. For example: curl -X POST -F "file=@/path/to/file" https://upload.example.com.
-* Debugging: You can check server responses and headers with commands like curl -I https://example.com, which retrieves only the HTTP headers.
+* Fetching Web Pages: You can easily retrieve web pages by running a command like `curl https://example.com`, which will display the HTML content directly in your terminal.
+* Testing APIs: curl is frequently used to send requests to RESTful APIs. For instance, to fetch user information, you might use `curl -X GET https://api.example.com/users/1`.
+* Uploading Files: You can upload files to a server using the POST method. For example: `curl -X POST -F "file=@/path/to/file" https://upload.example.com`.
+* Debugging: You can check server responses and headers with commands like `curl -I https://example.com`, which retrieves only the HTTP headers.
 
 In this project, your primary task is to implement several functionalities found in curl. 
 Your program should be capable of:
@@ -34,7 +34,7 @@ Your program should be capable of:
 
 When implementing the project, consider handling options similarly to how curl does. You can find more information about options [here](https://everything.curl.dev/cmdline/options/index.html). 
 
-Additionally, you should map errors to the appropriate exit codes. More details on exit codes can be found [here](https://everything.curl.dev/cmdline/options/index.html). 
+Additionally, you should map errors to the appropriate exit codes. More details on exit codes can be found [here](https://everything.curl.dev/cmdline/exitcode.html). 
 ## Resources
 
 - [An overview of HTTP - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
@@ -43,10 +43,10 @@ Additionally, you should map errors to the appropriate exit codes. More details 
 - [net package](https://pkg.go.dev/net)
 ## General Criteria
 
-- **Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
-- **Your program MUST be able to compile successfully.**
-- **Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.**
-- **Only built-in packages from the Go standard library are allowed, excluding `net/http`.**
+- Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
+- Your program MUST be able to compile successfully.
+- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
+- Only built-in packages from the Go standard library are allowed, excluding `net/http`.
 
 The project MUST be compiled by the following command in the project's root directory:
 
@@ -65,6 +65,9 @@ Your program should mimic the basic behavior of `curl`, allowing users to perfor
 ```
 
 This command will perform a default GET request to the given URL.
+
+The program must operate exclusively with the HTTP protocol, without relying on the `net/http` package or external HTTP libraries. Requests should be handled through raw TCP connections.
+
 ### --help 
 
 When running `./http-curl --help`, the output should list and describe the supported options:
@@ -81,9 +84,6 @@ Options:
   -h, --help            Display this help message and exit
 ```
 
-### Using only HTTP
-
-The program must operate exclusively with the HTTP protocol, without relying on the `net/http` package or external HTTP libraries. Requests should be handled through raw TCP connections.
 
 ### Sending GET requests
 
@@ -142,12 +142,14 @@ You should be able to run the program like this:
 ./http-url -c config.txt
 ```
 
-### Supporting options
+More about usage of a config file can be found [here](https://everything.curl.dev/cmdline/configfile.html)
+
+### Supported options
 
 The following options should be supported:
 
 - **`-X [GET|POST]`**: Specify the HTTP request method.
-- **`-d`** or **`data`**: Provide data for a POST request
+- **`-d`** or **`--data`**: Provide data for a POST request
 - **`-F`** or **`--form`**
 - **`-H`** or **`--header`**: Set custom HTTP headers.
 - **`-v`** or **`--verbose`**: Display detailed information about the HTTP transaction.
