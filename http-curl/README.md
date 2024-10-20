@@ -56,110 +56,86 @@ $ go build -o http-curl .
 
 ## Mandatory Part
 
-### Usage
+### Baseline
 
-Your program should mimic the basic behavior of `curl`, allowing users to perform various HTTP operations from the command line. For example:
+By default, your program must send a GET request to the specified URL if no additional options are provided.
 
+Outcomes:
+
+- Prints the response from the server
+
+Notes: 
+
+- You are not allowed to use the `net/http` package or external HTTP libraries. All requests must be handled via direct TCP connections.
+- If no method is specified, GET is the default.
+- The program must send a POST request if data is provided with the `-d` or `--data` option
+- It must automatically follow up to 5 HTTP redirections (3xx status codes)
+
+Constraints:
+
+- If an error occurs (e.g. connection issues, invalid input), the program must map it to a specific exit code. Reference the `curl` error codes guide [here](https://everything.curl.dev/cmdline/exitcode.html)
+
+Examples:
 ```bash
-./http-curl http://example.com
+$ ./http-curl http://example.com
 ```
 
-This command will perform a default GET request to the given URL.
 
-The program must operate exclusively with the HTTP protocol, without relying on the `net/http` package or external HTTP libraries. Requests should be handled through raw TCP connections.
+### Help documentation
 
-### --help 
-
-When running `./http-curl --help`, the output should list and describe the supported options:
+When running `./http-curl --help`, the output must print usage example and list and describe the supported options:
 
 ```
 Usage: ./http-curl [options] [URL]
 
 Options:
-  -X [GET|POST]         Specify the HTTP request method (GET or POST)
-  -d "data"             Send data with POST request
-  -H "header"           Set custom HTTP headers (e.g., "User-Agent: MyClient")
-  -v                    Enable verbose mode to display detailed request and response information
-  -c [config file]      Read options from a plain text configuration file
-  -h, --help            Display this help message and exit
+  -X [GET|POST]                   Specify the HTTP request method (GET or POST)
+  -d, --data "data"               Send data with POST request
+  -H, --header "header"           Set custom HTTP headers (e.g., "User-Agent: MyClient")
+  -v, --verbose                   Enable verbose mode to display detailed request and response information
+  -K, --config [config file]      Read options from a plain text configuration file
+  -h, --help                      Display this help message and exit
 ```
 
+### Supported HTTP methods
 
-### Sending GET requests
+The program must be able to send two types of requests: GET and POST. The desired method can be specified using the -X option.
 
-The program should handle GET requests. For example:
+
+For example: 
+```bash
+$ ./http-curl -X GET http://example.com
+```
+
+or 
 
 ```bash
-./http-curl -X GET http://example.com
+$ ./http-curl -X POST -d "name=John" http://example.com
 ```
-
-This retrieves the content from the given URL.
-
->When the method is not specified, the program should send GET request
-
-### Sending POST requests
-
-The program should handle POST requests and support sending data. For example:
-
-```bash
-./http-curl -X POST -d "name=John" http://example.com
-```
-
-This sends `"name=John"` as a POST request.
-
-When the method is not specified, but option `-d` is given, the program should send POST request.
-### Handling redirections
-
-The program should automatically follow HTTP redirection responses (3xx status codes) up to a limit of 5 redirections.
 
 ### Customizing headers
 
-Your program should allow for custom HTTP headers to be set. For example:
+Your program must allow users to customize HTTP headers. The header must be customized using `-H` or `--header`.
 
 ```bash
-./http-curl -X GET -H "User-Agent: MyClient" http://example.com
+$ ./http-curl -X GET -H "User-Agent: MyClient" http://example.com
+``` 
+
+Notes: 
+- Several headers must be customized by using `-H` or `--header` for each header. 
+
+```bash 
+$ ./http-curl -X GET -H "User-Agent: MyClient" -H "Authorization: Bearer token123" http://example.com
 ```
 
-This sends a GET request with a custom `User-Agent` header.
+Constraints:
+- The program must validate header format: `Header-Name: Header-Value`.
 
-### Handling errors
+### Details
 
-Error handling should map failures to appropriate exit codes, following `curl` conventions. For instance, a connection failure might map to a specific exit code. Reference the `curl` error codes guide [here](https://everything.curl.dev/cmdline/exitcode.html).
+The program must display detailed information about the HTTP request and response when `-v` or `--verbose` option specified. This helps in debugging and seeing exactly what’s happening during the HTTP transaction.
 
-### Reading options from a configuration file
-
-Your program should support reading options from a plain text configuration file. The file could look like:
-
-```
-method=GET
-url=http://example.com
-headers=User-Agent: MyClient
-```
-
-You should be able to run the program like this:
-
-```bash
-./http-url -c config.txt
-```
-
-More about usage of a config file can be found [here](https://everything.curl.dev/cmdline/configfile.html)
-
-### Supported options
-
-The following options should be supported:
-
-- **`-X [GET|POST]`**: Specify the HTTP request method.
-- **`-d`** or **`--data`**: Provide data for a POST request
-- **`-F`** or **`--form`**
-- **`-H`** or **`--header`**: Set custom HTTP headers.
-- **`-v`** or **`--verbose`**: Display detailed information about the HTTP transaction.
-- **`-K`** or **`--config`**: Read options from a configuration file.
-- **`-h` or `--help`**: Display help information and explain available options.
-- **`-f`** or **`--fail`** : Fail silently on server errors, returning exit code 22 on HTTP errors
-
-### Example of `-v` usage
-
-When using the `-v` (verbose) option, the program should display detailed information about the HTTP request and response, similar to:
+Example:
 
 ```bash
 ./http-curl -X GET -v http://example.com
@@ -178,7 +154,36 @@ This will output:
 ...
 ```
 
-This helps in debugging and seeing exactly what’s happening during the HTTP transaction.
+### Configuration file
+
+The program must be able to read options from a plain text configuration file using `-K` or `--config` option.
+
+Notes:
+- Options must be specified on separate lines.
+- The url must be specified using `--url` or `url`.
+- The lines starting with `#` must be treated as comments.
+- Long or short command-line options can be used, and arguments can be separated by spaces, colons (:), or equals signs (=).
+- Long options can be used without leading dash lines.
+
+Constraints:
+- The program must validate the configuration file format. If it is invalid, the program should display an error and show the correct usage.
+
+Examples:
+```bash
+$ ./http-curl -K config.txt
+```
+
+#### config.txt
+
+```
+-X POST
+# this is comment
+url = http://example.com
+header: "User-Agent: MyClient"
+```
+
+More about usage of a config file can be found [here](https://everything.curl.dev/cmdline/configfile.html)
+
 ## Support
 
 Start by implementing basic HTTP functionality like GET and POST requests. Add more features gradually, such as URL redirection and custom headers. When stuck, refer to the `curl` documentation for guidance. Test your program by comparing its behavior with previous projects to ensure correctness. Build iteratively and validate each step before moving on to the next.
