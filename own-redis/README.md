@@ -1,93 +1,164 @@
-# Learning Objectives
+# own-redis
+
+## Learning Objectives
+
 - TCP/IP
 - UDP protocol
 - basic networking concept
-# Abstract
+
+## Abstract
+
 in this project, you will create you own key-value database to:
 - store value by key
 - retrieve stored data from given key
-# Context
+
+## Context
 
 In the programming world, there is often a need to store unstructured key-value data without explicit relationships. In such cases, key-value databases come to the rescue. The principle of their work is quite simple: by a given key, they directly store the value in RAM. Due to their simplicity, such databases work very quickly
 
-Example of such databases are:
+A striking example of such databases are:
 - [Redis](https://redis.io/)
 - [MongoDB](https://www.mongodb.com/)
 - [Dynomydb](https://aws.amazon.com/dynamodb/)
 
-Basic operations of inserting and retrieving a value by key work in constant time O(1)
+Basic operations of inserting and retrieving a value by key in the above mentioned databases work in constant time O(1)
 
-# General Criteria
+## General Criteria
+
 - Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
 - Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
 - Only built-in packages are allowed. If not, you will get `0` grade.
 - The project MUST be compiled by the following command in the project's root directory:
-
 ```shell
 $ go build -o own-redis .
 ```
+- The default port for the program should be `8080`, but it can be changed with the optional argument `--port`.
+```shell
+$ ./own-redis --port 8080
+```
 
-# Mandatory Part
+## Mandatory Part
 
+Writing a key-value store via REST API would be too easy, wouldn't it? Let's make it a bit more complicated and let the client and your application communicate using the UDP protocol, i.e. each request and response is a single UDP packet. In our key-value store implementation you have to implent three methods SET, GET and PING. SET puts a key-value and GET gets and returns the given value back to the client. The PING command verifies that the storage is working.
 
-Writing a key-value store via REST API would be too easy, wouldn't it? Let's make it a bit more complicated and let the client and your application communicate using the UDP protocol, i.e. each request and response is a single UDP packet. In our key-value store implementation there are only two methods, SET and GET. SET puts the value by key, and GET gets and returns the given value back to the client or returns an error if the value was not found in the database.
+NOTE:
+- Command names, command arguments are  case-insensitive. So `PING`, `ping` and `Ping` are all valid and denote the same program
+
+### PING
+
+`PING` is one of the simplest Redis commands. It's used to check whether a Redis server is healthy. The response for the `PING` command is `PONG`
+```sh
+$ nc 0.0.0.0 8080
+PING
+PONG
+```
 
 ### SET
 
-Any request that has an equal sign in its message (“`=`”, or ASCII 61) will be considered an insert request.
-
-The equal sign (“`=`”) separates the key (before the sign) and the value (everything after the sign) from each other
+Any request that has the string SET as the first argument in its message will be considered an insert request
 
 Example:
-- `foo=bar` will insert a key `foo` with value “`bar`”.
-- `foo=bar=baz` will insert a key `foo` with value “`bar=baz`”.
-- `foo===` will insert a key `foo` with value “`==`”.
+- `SET foo bar` will insert a key `foo` with value “`bar`”.
+- `SET foo bar baz` will insert a key `foo` with value “`bar baz`”.
 
-If the client tries to insert a value into an existing key, your application should update the value to the last value specified by the client (new).
+If the number of arguments is not enough to save the key, the server should return an error
 
-SET should not return any message
-### GET
+Example:
+- `SET KEYVAL` will return error with text “`(error) ERR wrong number of arguments for ‘SET’ command`”
+- `SET` will return error with text “`(error) ERR wrong number of arguments for ‘SET’ command`”.
 
-A GET request is any request that does not contain an equal sign (“`=`”, or ASCII 61). When attempting to query for an existing key, the server should return a response in the format `key=value`.
+SET should return `OK`
 
-Example request:
-
+```sh
+$ nc 0.0.0.0 8080
+SET Foo Bar
+OK
 ```
-foo
-```
-
-Example response:
-
-```
-foo=bar
-```
-
-Otherwise, if the key is not in the database, the server should return the message `keyDoesNotExists`
-
-Example request:
-
-```
+#### Options
+The `SET` command supports option `PX` that modify its behavior:
+- `PX` _milliseconds_ - Set the specified expire time, in milliseconds (a positive integer)
+Example:
+```sh
+$ nc 0.0.0.0 8080
+SET foo bar px 10000
+OK
+GET foo
 bar
 ```
-
-Example response:
-
+A request within 10000 milliseconds will produce a bar response, but once the time is up, the server should clear the value and should return `(nil)` when client attempting to retrieve the value
+```sh
+$ nc 0.0.0.0 8080
+GET foo
+(nil)
 ```
-keyDoesNotExists
+### GET
+
+A GET request is any request in which the first argument contains the `GET` command. When attempting to query an existing key, the server must return the previously stored value in response
+
+Example:
+```sh
+$ nc 0.0.0.0 8080
+SET Foo Bar
+OK
+GET Foo
+Bar
 ```
 
+Otherwise, if the key is not in the storage, the server should return a `(nil)` message
 
-# Guidelines from Author
+Example:
+```sh
+$ nc 0.0.0.0 8080
+GET RandomKey
+(nil)
+```
+
+If the client tries to insert a value into an existing key, your application should update the value to the last value specified by the client (new)
+
+Example:
+```sh
+$ nc 0.0.0.0 8080
+SET Foo Bar
+OK
+GET Foo
+Bar
+SET Foo Buz
+OK
+GET Foo
+Buz
+```
+
+### Usage
+Your program must be able to print usage information.
+
+Outcomes:
+
+- Program prints usage text.
+
+```shell
+$ ./own-redis --help
+Own Redis
+
+Usage:
+  own-redis [--port <N>]
+  own-redis --help
+
+Options:
+  --help       Show this screen.
+  --port N     Port number.
+```
+
+## Guidelines from Author
 
 For debugging and testing your application, it is better to use the built-in linux utility [netcat](https://www.commandlinux.com/man-page/man1/nc.1.html)
 
-# Author
+## Author
+
 This project has been created by:
 
 Askaruly Nurislam, alumni of Alem school
 
 Contacts:
-
 - Email: [askaruly@hotmail.com](mailto:askaruly@hotmail.com)
 - [GitHub](https://github.com/darwin939/)
