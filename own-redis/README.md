@@ -4,7 +4,7 @@
 
 - TCP/IP
 - UDP protocol
-- basic networking concept
+- Basic networking concepts
 
 ## Abstract
 
