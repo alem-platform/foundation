@@ -16,7 +16,7 @@ in this project, you will create you own key-value database to:
 
 In the programming world, there is often a need to store unstructured key-value data without explicit relationships. In such cases, key-value databases come to the rescue. The principle of their work is quite simple: by a given key, they directly store the value in RAM. Due to their simplicity, such databases work very quickly
 
-A striking example of such databases are:
+Examples of such databases are:
 - [Redis](https://redis.io/)
 - [MongoDB](https://www.mongodb.com/)
 - [Dynomydb](https://aws.amazon.com/dynamodb/)
