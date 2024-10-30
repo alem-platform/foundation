@@ -8,9 +8,9 @@
 
 ## Abstract
 
-in this project, you will create you own key-value database to:
-- store value by key
-- retrieve stored data from given key
+This project involves developing a custom key-value database that enables users to store and retrieve data using unique keys.
+The database operates in RAM for quick access, utilizing the UDP protocol for communication between the storage and the client.
+Key operations include SET, GET, and PING. This project aims to deepen understanding of networking and database principles while providing practical experience in building a key-value store
 
 ## Context
 
@@ -24,10 +24,10 @@ Basic operations of inserting and retrieving a value by key in the above mention
 
 ## General Criteria
 
-- Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
+- Your code MUST be written in accordance with [gofumpt](https://github.com/mvdan/gofumpt). If not, you will be graded `0` automatically.
 - Your program MUST be able to compile successfully.
-- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
-- Only built-in packages are allowed. If not, you will get `0` grade.
+- Your program MUST not exit unexpectedly (any panics: `nil-pointer dereference`, `index out of range` etc.). If so, you will be get `0` during the defence.
+- Only built-in packages are allowed. If not, you will get `0` grade.
 - The project MUST be compiled by the following command in the project's root directory:
 ```shell
 $ go build -o own-redis .
@@ -42,7 +42,7 @@ $ ./own-redis --port 8080
 Writing a key-value store via REST API would be too easy, wouldn't it? Let's make it a bit more complicated and let the client and your application communicate using the UDP protocol, i.e. each request and response is a single UDP packet. In our key-value store implementation you have to implent three methods SET, GET and PING. SET puts a key-value and GET gets and returns the given value back to the client. The PING command verifies that the storage is working.
 
 NOTE:
-- Command names, command arguments are  case-insensitive. So `PING`, `ping` and `Ping` are all valid and denote the same program
+- Command names, command arguments are  case-insensitive. So `PING`, `ping` and `Ping` are all valid and denote the same command
 
 ### PING
 
@@ -64,8 +64,8 @@ Example:
 If the number of arguments is not enough to save the key, the server should return an error
 
 Example:
-- `SET KEYVAL` will return error with text “`(error) ERR wrong number of arguments for ‘SET’ command`”
-- `SET` will return error with text “`(error) ERR wrong number of arguments for ‘SET’ command`”.
+- `SET KEYVAL` will return error with text “`(error) ERR wrong number of arguments for 'SET' command`”
+- `SET` will return error with text “`(error) ERR wrong number of arguments for 'SET' command`”.
 
 SET should return `OK`
 
@@ -128,6 +128,9 @@ GET Foo
 Buz
 ```
 
+Note:
+- Your program will be tested with parallel/competitive requests. To avoid data races, you need to use synchronization primitives from the [sync](https://pkg.go.dev/sync) package
+
 ### Usage
 Your program must be able to print usage information.
 
@@ -159,5 +162,5 @@ This project has been created by:
 Askaruly Nurislam, alumni of Alem school
 
 Contacts:
-- Email: [askaruly@hotmail.com](mailto:askaruly@hotmail.com)
+- Email: [askaruly@hotmail.com](mailto:askaruly@hotmail.com)
 - [GitHub](https://github.com/darwin939/)
