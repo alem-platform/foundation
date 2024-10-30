@@ -8,9 +8,11 @@
 
 ## Abstract
 
-This project involves developing a custom key-value database that enables users to store and retrieve data using unique keys.
-The database operates in RAM for quick access, utilizing the UDP protocol for communication between the storage and the client.
-Key operations include SET, GET, and PING. This project aims to deepen understanding of networking and database principles while providing practical experience in building a key-value store
+In this project, you will build a custom key-value database.
+
+Such databases are crucial for efficiently storing and retrieving data using unique keys. This application will operate in RAM for fast access, utilizing the UDP protocol to facilitate communication between the storage and the client. Key operations will include SET, GET, and PING.
+
+This project will enhance your understanding of networking and database principles
 
 ## Context
 
