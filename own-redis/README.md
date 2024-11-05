@@ -41,7 +41,7 @@ $ ./own-redis --port 8080
 
 ## Mandatory Part
 
-Writing a key-value store via REST API would be too easy, wouldn't it? Let's make it a bit more complicated and let the client and your application communicate using the UDP protocol, i.e. each request and response is a single UDP packet. In our key-value store implementation you have to implent three methods SET, GET and PING. SET puts a key-value and GET gets and returns the given value back to the client. The PING command verifies that the storage is working.
+Writing a key-value store via REST API would be too easy, wouldn't it? Let's make it a bit more complicated and let the client and your application communicate using the UDP protocol, i.e. each request and response is a single UDP packet. In our key-value store implementation you have to implement three methods SET, GET and PING. SET puts a key-value and GET gets and returns the given value back to the client. The PING command verifies that the storage is working.
 
 NOTE:
 - Command names, command arguments are  case-insensitive. So `PING`, `ping` and `Ping` are all valid and denote the same command
