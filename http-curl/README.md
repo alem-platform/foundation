@@ -27,9 +27,11 @@ Your program should be capable of:
 * Communicating with servers using the HTTP protocol
 * Sending GET requests
 * Sending POST requests with additional data
+* Sending requests with any HTTP method
 * Handling redirections
 * Allowing users to customize headers
 * Handling errors
+* Using a configurable timeout
 * Reading options from a plain text configuration file
 
 When implementing the project, consider handling options similarly to how curl does. You can find more information about options [here](https://everything.curl.dev/cmdline/options/index.html). 
@@ -65,10 +67,10 @@ Outcomes:
 - Prints the response from the server
 
 Notes: 
+- All requests must be handled via direct TCP connections.
 
-- You are not allowed to use the `net/http` package or external HTTP libraries. All requests must be handled via direct TCP connections.
 - If no method is specified, GET is the default.
-- The program must send a POST request if data is provided with the `-d` or `--data` option
+- If data is provided with the `-d` or `--data` option and no method is specified, the program must send a POST request.
 - It must automatically follow up to 5 HTTP redirections (3xx status codes)
 
 Constraints:
@@ -89,17 +91,16 @@ When running `./http-curl --help`, the output must print usage example and list 
 Usage: ./http-curl [options] [URL]
 
 Options:
-  -X [GET|POST]                   Specify the HTTP request method (GET or POST)
+  -X  "method"                    Specify the HTTP request method
   -d, --data "data"               Send data with POST request
   -H, --header "header"           Set custom HTTP headers (e.g., "User-Agent: MyClient")
-  -v, --verbose                   Enable verbose mode to display detailed request and response information
   -K, --config [config file]      Read options from a plain text configuration file
   -h, --help                      Display this help message and exit
 ```
 
-### Supported HTTP methods
+### HTTP methods
 
-The program must be able to send two types of requests: GET and POST. The desired method can be specified using the -X option.
+The program must be able to send requests with any arbitrary HTTP method. The desired method can be specified using the `-X` option.
 
 
 For example: 
@@ -111,6 +112,12 @@ or
 
 ```bash
 $ ./http-curl -X POST -d "name=John" http://example.com
+```
+
+or
+
+```bash
+$ ./http-curl -X DELETE http://example.com
 ```
 
 ### Customizing headers
@@ -131,27 +138,21 @@ $ ./http-curl -X GET -H "User-Agent: MyClient" -H "Authorization: Bearer token12
 Constraints:
 - The program must validate header format: `Header-Name: Header-Value`.
 
-### Details
 
-The program must display detailed information about the HTTP request and response when `-v` or `--verbose` option specified. This helps in debugging and seeing exactly what’s happening during the HTTP transaction.
+### Timeout
 
-Example:
+The program must process requests within a default timeout of 30 seconds. This timeout can be adjusted using the `--max-time` or `-m` option.
+
+Notes:
+* The timeout value is specified in seconds.
+* The timeout applies to the entire duration of the request, including connection setup and data transfer.
+* If the specified timeout is reached before the request completes, the program should terminate the connection and return an error.
+* If no timeout is set, the default 30 seconds will be used to ensure the program does not hang indefinitely.
+  
+Examples:
 
 ```bash
-./http-curl -X GET -v http://example.com
-```
-
-This will output:
-
-```
-> GET / HTTP/1.1
-> Host: example.com
-> User-Agent: your_program/1.0
-> Accept: */*
-< HTTP/1.1 200 OK
-< Content-Type: text/html
-< Content-Length: 1024
-...
+$ ./http-curl --max-time 10 http://example.com
 ```
 
 ### Configuration file
@@ -192,7 +193,7 @@ Start by implementing basic HTTP functionality like GET and POST requests. Add m
 
 ### 1. Plan Before You Code
 
-Before jumping into writing code, take a step back and plan out what you're going to do. Think about the idea first—code comes second. Having a clear plan makes coding smoother and helps avoid problems later on.
+Before jumping into writing code, take a step back and plan out what you're going to do. Think about the idea first — code comes second. Having a clear plan makes coding smoother and helps avoid problems later on.
 
 ### 2. Don’t Be Afraid to Rewrite
 
