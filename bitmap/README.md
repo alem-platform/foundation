@@ -426,7 +426,7 @@ Source: https://www.reddit.com/r/learnprogramming/wiki/faq/#wiki_is_it_normal_fo
 
 This project has been created by:
 
-Dias Kappassov, FrontEnd Developer at Doodocs.kz
+Dias Kappassov, Software Developer at Doodocs.kz
 
 Contacts:
 
