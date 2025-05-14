@@ -430,6 +430,6 @@ Dias Kappassov, FrontEnd Developer at Doodocs.kz
 
 Contacts:
 
-- Email: [kappassov@doodocs.kz](mailto:kappassov@doodocs.kz)
+- Email: [diaskappassov@gmail.com](mailto:diaskappassov+alem@gmail.com)
 - [GitHub](https://github.com/Dias1c/)
 - [LinkedIn](https://www.linkedin.com/in/diaskappassov/)
