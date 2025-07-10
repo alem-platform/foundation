@@ -33,7 +33,7 @@ Whether you're aiming to grasp the basics of cloud storage or prepare for workin
 - Read about HTTP Server [here](https://gobyexample.com/http-server)
 - Read about HTTP response status codes [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 - Read about REST and API [here](https://en.wikipedia.org/wiki/REST), [here](https://en.wikipedia.org/wiki/API) and [here](https://aws.amazon.com/what-is/restful-api/).
-- Read about 3S API [here](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) (pull out only the necessary information)
+- Read about S3 API [here](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) (pull out only the necessary information)
 
 # General Criteria
 
